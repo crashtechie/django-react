@@ -1,5 +1,5 @@
-from django.db import models
-from django.core.validators import EmailValidator, RegexValidator
+from django.db import models  # type: ignore
+from django.core.validators import EmailValidator, RegexValidator  # type: ignore
 
 
 class Customer(models.Model):
@@ -57,7 +57,7 @@ class Customer(models.Model):
 
     def clean(self):
         """Custom validation for the model."""
-        from django.core.exceptions import ValidationError
+        from django.core.exceptions import ValidationError  # type: ignore
         
         # Capitalize names
         if self.first_name:

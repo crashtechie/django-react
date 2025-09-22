@@ -31,5 +31,5 @@ class CustomerAdmin(admin.ModelAdmin):
     def full_name(self, obj):
         """Display full name in admin list."""
         return obj.full_name
-    full_name.short_description = 'Full Name'
-    full_name.admin_order_field = 'last_name'
+    full_name.short_description = 'Full Name'  # type: ignore
+    full_name.admin_order_field = 'last_name'  # type: ignore

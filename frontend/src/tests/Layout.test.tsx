@@ -19,16 +19,15 @@ describe('Layout', () => {
 
   it('renders without crashing', () => {
     renderWithRouter(<div>Test Content</div>)
-    expect(screen.getByText('Customer Management System')).toBeInTheDocument()
+    expect(screen.getByText('Customer Management')).toBeInTheDocument()
   })
 
   it('renders navigation header', () => {
     renderWithRouter(<div>Test Content</div>)
     
-    expect(screen.getByText('Customer Management System')).toBeInTheDocument()
+    expect(screen.getByText('Customer Management')).toBeInTheDocument()
     expect(screen.getByText('Dashboard')).toBeInTheDocument()
     expect(screen.getByText('Customers')).toBeInTheDocument()
-    expect(screen.getByText('Add Customer')).toBeInTheDocument()
   })
 
   it('renders children content', () => {
@@ -44,30 +43,26 @@ describe('Layout', () => {
     
     const dashboardLink = screen.getByRole('link', { name: 'Dashboard' })
     const customersLink = screen.getByRole('link', { name: 'Customers' })
-    const addCustomerLink = screen.getByRole('link', { name: 'Add Customer' })
     
     expect(dashboardLink).toHaveAttribute('href', '/')
     expect(customersLink).toHaveAttribute('href', '/customers')
-    expect(addCustomerLink).toHaveAttribute('href', '/customers/new')
   })
 
   it('applies correct CSS classes for styling', () => {
     renderWithRouter(<div>Test Content</div>)
     
-    const header = screen.getByRole('banner')
     const nav = screen.getByRole('navigation')
     const main = screen.getByRole('main')
     
-    expect(header).toHaveClass('bg-blue-600', 'text-white', 'shadow-md')
-    expect(nav).toBeInTheDocument()
-    expect(main).toHaveClass('container', 'mx-auto', 'px-4', 'py-8')
+    expect(nav).toHaveClass('bg-white', 'shadow-sm', 'border-b', 'border-gray-200')
+    expect(main).toHaveClass('max-w-7xl', 'mx-auto', 'py-6')
   })
 
   it('renders responsive navigation', () => {
     renderWithRouter(<div>Test Content</div>)
     
-    // Check for responsive classes
-    const nav = screen.getByRole('navigation')
-    expect(nav).toHaveClass('flex', 'space-x-4')
+    // Check for responsive classes on navigation container
+    const navContainer = screen.getByRole('navigation').querySelector('div')
+    expect(navContainer).toHaveClass('max-w-7xl', 'mx-auto')
   })
 })

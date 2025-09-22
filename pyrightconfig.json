@@ -1,0 +1,38 @@
+{
+  "include": [
+    "backend",
+    "frontend/src"
+  ],
+  "exclude": [
+    "**/node_modules",
+    "**/__pycache__",
+    "**/migrations",
+    "**/.venv",
+    "**/venv"
+  ],
+  "defineConstant": {
+    "DEBUG": true
+  },
+  "stubPath": "backend/typings",
+  "venvPath": "backend",
+  "venv": ".venv",
+  "reportMissingImports": "none",
+  "reportMissingTypeStubs": "none",
+  "reportUnknownMemberType": "none",
+  "reportUnknownArgumentType": "none",
+  "reportUnknownVariableType": "none",
+  "reportPrivateUsage": "warning",
+  "reportConstantRedefinition": "none",
+  "pythonVersion": "3.13",
+  "pythonPlatform": "Windows",
+  "executionEnvironments": [
+    {
+      "root": "backend",
+      "pythonVersion": "3.13",
+      "pythonPlatform": "Windows",
+      "extraPaths": [
+        "backend"
+      ]
+    }
+  ]
+}

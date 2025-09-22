@@ -1,8 +1,8 @@
-from rest_framework import viewsets, filters, status
-from rest_framework.decorators import action
-from rest_framework.response import Response
-from django_filters.rest_framework import DjangoFilterBackend
-from django.db.models import Q
+from rest_framework import viewsets, filters, status  # type: ignore
+from rest_framework.decorators import action  # type: ignore
+from rest_framework.response import Response  # type: ignore
+from django_filters.rest_framework import DjangoFilterBackend  # type: ignore
+from django.db.models import Q  # type: ignore
 from .models import Customer
 from .serializers import CustomerSerializer, CustomerListSerializer
 

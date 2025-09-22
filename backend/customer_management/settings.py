@@ -3,7 +3,7 @@ Django settings for customer_management project.
 """
 
 import os
-import toml
+import toml  # type: ignore
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
