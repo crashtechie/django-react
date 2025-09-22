@@ -1,0 +1,65 @@
+[project]
+name = "customer-management-backend"
+version = "0.1.0"
+description = "Django backend for customer management application"
+requires-python = ">=3.13"
+dependencies = [
+    "django>=5.0.0",
+    "djangorestframework>=3.14.0",
+    "django-cors-headers>=4.3.0",
+    "psycopg2-binary>=2.9.0",
+    "gunicorn>=21.0.0",
+    "python-dotenv>=1.0.0",
+    "toml>=0.10.0",
+    "django-extensions>=3.2.0",
+    "pillow>=10.0.0",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "pytest-django>=4.5.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.5.0",
+    "factory-boy>=3.3.0",
+    "django-debug-toolbar>=4.2.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.black]
+line-length = 88
+target-version = ['py313']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+  | migrations
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+skip_glob = ["*/migrations/*"]
+
+[tool.mypy]
+python_version = "3.13"
+check_untyped_defs = true
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true

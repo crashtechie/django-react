@@ -1,0 +1,21 @@
+{
+  "name": "customer-management-e2e-tests",
+  "version": "1.0.0",
+  "description": "End-to-end tests for Customer Management System",
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report",
+    "test:codegen": "playwright codegen http://localhost:3000",
+    "install-browsers": "playwright install",
+    "install-deps": "playwright install-deps"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "@types/node": "^22.7.4",
+    "typescript": "^5.6.2"
+  }
+}
