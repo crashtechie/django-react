@@ -107,7 +107,7 @@ jobs:
         run: pnpm --filter customer-management-frontend lint
 
       - name: Run type checking
-        run: npx tsc --noEmit --project frontend/tsconfig.json
+        run: pnpm exec tsc --noEmit --project frontend/tsconfig.json
 
       - name: Run tests
         run: pnpm --filter customer-management-frontend test:coverage

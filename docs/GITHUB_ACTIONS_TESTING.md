@@ -57,12 +57,14 @@ act push --verbose
 Instead of running full workflows, test individual commands:
 
 ```powershell
-# Test pnpm installation and build
-pnpm install --frozen-lockfile || pnpm install
-pnpm --filter frontend lint
-pnpm --filter frontend typecheck
-pnpm --filter frontend test:coverage
-pnpm --filter frontend build
+# Test pnpm installation and dependencies
+try { pnpm install --frozen-lockfile } catch { pnpm install }
+
+# Test frontend commands (using correct workspace names)
+pnpm --filter customer-management-frontend lint
+pnpm exec tsc --noEmit --project frontend/tsconfig.json  # TypeScript checking
+pnpm --filter customer-management-frontend test:coverage
+pnpm --filter customer-management-frontend build
 
 # Test backend commands
 cd backend
@@ -103,6 +105,13 @@ uv run flake8 .
    ```powershell
    # Use host network
    act push --use-new-action-cache
+   ```
+
+5. **TypeScript Issues:**
+   ```powershell
+   # ❌ Wrong: npx tsc causes "This is not the tsc command you are looking for"
+   # ✅ Correct: Use pnpm exec to access workspace TypeScript
+   pnpm exec tsc --noEmit --project frontend/tsconfig.json
    ```
 
 ### Act Limitations
