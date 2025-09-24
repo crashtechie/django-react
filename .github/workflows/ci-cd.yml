@@ -104,13 +104,13 @@ jobs:
           pnpm install --frozen-lockfile || pnpm install
 
       - name: Run linting
-        run: pnpm --filter frontend lint
+        run: pnpm --filter customer-management-frontend lint
 
       - name: Run type checking
-        run: pnpm --filter frontend typecheck || npx tsc --noEmit --project frontend/tsconfig.json
+        run: npx tsc --noEmit --project frontend/tsconfig.json
 
       - name: Run tests
-        run: pnpm --filter frontend test:coverage
+        run: pnpm --filter customer-management-frontend test:coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
@@ -119,7 +119,7 @@ jobs:
           flags: frontend
 
       - name: Build application
-        run: pnpm --filter frontend build
+        run: pnpm --filter customer-management-frontend build
 
   security-scan:
     name: Security Scan
