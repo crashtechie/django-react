@@ -1,0 +1,118 @@
+name: Update Wiki Documentation
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'design_docs/**'
+      - 'README.md'
+      - 'tools/create_github_wiki.py'
+      - 'tools/wiki_config.toml'
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Force update all wiki pages'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  update-wiki:
+    name: Update GitHub Wiki
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for better diff detection
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install toml gitpython
+
+      - name: Configure Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Check for documentation changes
+        id: check_changes
+        run: |
+          # Check if this is a forced update
+          if [ "${{ inputs.force_update }}" == "true" ]; then
+            echo "force_update=true" >> $GITHUB_OUTPUT
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          
+          # Check for changes in documentation files
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD -- design_docs/ README.md tools/create_github_wiki.py tools/wiki_config.toml || true)
+          
+          if [ -n "$CHANGED_FILES" ]; then
+            echo "Documentation changes detected:"
+            echo "$CHANGED_FILES"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "No documentation changes detected"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Generate Wiki Documentation
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          echo "🚀 Generating GitHub Wiki documentation..."
+          python tools/create_github_wiki.py --repo-path .
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Validate Wiki Generation
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          echo "✅ Wiki generation completed successfully"
+          echo "📚 Check your repository wiki at: https://github.com/${{ github.repository }}/wiki"
+
+      - name: Create Wiki Summary
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          echo "## 📖 Wiki Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "The GitHub Wiki has been automatically updated with the latest documentation." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🔗 Quick Links" >> $GITHUB_STEP_SUMMARY
+          echo "- [📚 Wiki Home](https://github.com/${{ github.repository }}/wiki)" >> $GITHUB_STEP_SUMMARY
+          echo "- [🚀 Getting Started](https://github.com/${{ github.repository }}/wiki/Getting-Started)" >> $GITHUB_STEP_SUMMARY
+          echo "- [👨‍💻 Development](https://github.com/${{ github.repository }}/wiki/Development)" >> $GITHUB_STEP_SUMMARY
+          echo "- [🏗️ Architecture](https://github.com/${{ github.repository }}/wiki/Architecture)" >> $GITHUB_STEP_SUMMARY
+          echo "- [🔒 Security](https://github.com/${{ github.repository }}/wiki/Security)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📝 Updated Files" >> $GITHUB_STEP_SUMMARY
+          if [ -n "$CHANGED_FILES" ]; then
+            echo "$CHANGED_FILES" | sed 's/^/- /' >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- All documentation files (forced update)" >> $GITHUB_STEP_SUMMARY
+          fi
+        env:
+          CHANGED_FILES: ${{ steps.check_changes.outputs.changed_files }}
+
+      - name: Skip Wiki Update
+        if: steps.check_changes.outputs.has_changes != 'true'
+        run: |
+          echo "ℹ️ No documentation changes detected. Skipping wiki update."
+          echo "## 📖 Wiki Update Skipped" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "No changes were detected in documentation files, so the wiki update was skipped." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "To force a wiki update, you can:" >> $GITHUB_STEP_SUMMARY
+          echo "- Run this workflow manually with the 'Force update' option" >> $GITHUB_STEP_SUMMARY
+          echo "- Make changes to files in the \`design_docs/\` directory or \`README.md\`" >> $GITHUB_STEP_SUMMARY

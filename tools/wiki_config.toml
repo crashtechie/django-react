@@ -1,0 +1,108 @@
+# GitHub Wiki Configuration
+# This file configures how your documentation is organized in the GitHub Wiki
+
+# Wiki structure and categories
+[wiki.categories]
+"Getting Started" = { order = 1, icon = "🚀", description = "Installation, setup, and basic usage" }
+"Development" = { order = 2, icon = "👨‍💻", description = "Development guides, roadmaps, and best practices" }
+"Architecture" = { order = 3, icon = "🏗️", description = "System design, data models, and technical decisions" }
+"Security" = { order = 4, icon = "🔒", description = "Security policies, configurations, and best practices" }
+"Operations" = { order = 5, icon = "⚙️", description = "Deployment, monitoring, and production considerations" }
+"Reference" = { order = 6, icon = "📖", description = "API documentation, troubleshooting, and misc resources" }
+
+# File mapping - maps source files to wiki categories and custom titles
+[wiki.file_mapping]
+"README.md" = { category = "Getting Started", title = "Home", order = 0 }
+"DEVELOPMENT.md" = { category = "Development", title = "Development Guide", order = 1 }
+"DOCKER-SECURITY.md" = { category = "Security", title = "Docker Security", order = 1 }
+"SECURITY-RESOLUTION.md" = { category = "Security", title = "Security Resolution", order = 2 }
+"design_document.txt" = { category = "Architecture", title = "Design Document", order = 1 }
+"RESOLUTION-SUMMARY.md" = { category = "Reference", title = "Resolution Summary", order = 1 }
+
+# Improvement documents mapping
+[wiki.improvements_mapping]
+"production-readiness.md" = { category = "Operations", title = "Production Readiness", order = 1 }
+"implementation-roadmap.md" = { category = "Development", title = "Implementation Roadmap", order = 2 }
+"frontend-test-coverage.md" = { category = "Development", title = "Frontend Test Coverage", order = 3 }
+"minor-enhancements.md" = { category = "Development", title = "Minor Enhancements", order = 4 }
+
+# Content templates for generated pages
+[wiki.templates]
+api_docs = """
+# API Documentation
+
+## Overview
+{overview}
+
+## Authentication
+{auth_info}
+
+## Endpoints
+{endpoints}
+
+## Error Handling
+{error_handling}
+
+## Examples
+{examples}
+"""
+
+setup_guide = """
+# Setup Guide
+
+## Prerequisites
+{prerequisites}
+
+## Installation Steps
+{installation_steps}
+
+## Configuration
+{configuration}
+
+## Verification
+{verification}
+
+## Next Steps
+{next_steps}
+"""
+
+troubleshooting = """
+# Troubleshooting Guide
+
+## Common Issues
+{common_issues}
+
+## Diagnostic Steps
+{diagnostics}
+
+## Solutions
+{solutions}
+
+## Getting Help
+{getting_help}
+"""
+
+# Link conversion rules
+[wiki.links]
+# Convert relative documentation links to wiki links
+convert_relative_links = true
+# External links to keep as-is
+external_domains = ["github.com", "docs.python.org", "reactjs.org", "django.readthedocs.io"]
+
+# Sidebar configuration
+[wiki.sidebar]
+show_icons = true
+group_by_category = true
+show_page_count = true
+collapse_categories = false
+
+# Auto-generation settings
+[wiki.generation]
+# Include file modification dates
+include_timestamps = true
+# Add breadcrumb navigation
+add_breadcrumbs = true
+# Cross-reference related pages
+auto_cross_reference = true
+# Generate table of contents for long pages
+auto_toc_threshold = 500
