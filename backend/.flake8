@@ -11,7 +11,8 @@ exclude =
     build,
     dist,
     .eggs,
-    *.egg-info
+    *.egg-info,
+    */_version.py
 extend-ignore = E203, W503
 per-file-ignores =
     */tests/*.py:E501
