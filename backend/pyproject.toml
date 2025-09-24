@@ -35,8 +35,12 @@ dev = [
 requires = ["setuptools>=45", "setuptools-scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools.packages.find]
+include = ["customer_management*", "config*", "customers*"]
+
 [tool.setuptools_scm]
-write_to = "customer_management/_version.py"
+root = ".."
+write_to = "backend/customer_management/_version.py"
 version_scheme = "post-release"
 local_scheme = "no-local-version"
 
