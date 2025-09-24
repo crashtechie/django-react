@@ -10,6 +10,14 @@ import toml  # type: ignore
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Version information
+try:
+    from customer_management._version import __version__
+except ImportError:
+    __version__ = "0.1.0"
+
+VERSION = __version__
+
 # Load configuration from TOML files
 config_dir = BASE_DIR / "config"
 environment = os.getenv("DJANGO_ENVIRONMENT", "development")

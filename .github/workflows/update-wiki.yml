@@ -12,9 +12,9 @@ on:
     inputs:
       force_update:
         description: 'Force update all wiki pages'
+        type: boolean
         required: false
         default: false
-        type: boolean
 
 jobs:
   update-wiki:

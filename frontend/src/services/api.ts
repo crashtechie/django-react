@@ -11,10 +11,13 @@ const api = axios.create({
   withCredentials: true,
 })
 
-// Request interceptor for debugging
+// Request interceptor
 api.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    console.log(`API Request: ${config.method?.toUpperCase()} ${config.url}`)
+    // Only log in development
+    if (import.meta.env.DEV) {
+      console.log(`API Request: ${config.method?.toUpperCase()} ${config.url}`)
+    }
     return config
   },
   (error: AxiosError) => {

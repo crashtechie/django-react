@@ -1,10 +1,14 @@
 # Multi-stage build for React app with Nginx
-# Using pinned versions for reproducible builds
-FROM node:20.18.1-alpine3.20 AS builder
+# Using Google Distroless Node.js image for enhanced security
+FROM gcr.io/distroless/nodejs20-debian12 AS runtime-base
 
-# Install security updates and clean package cache
-RUN apk update && apk upgrade --no-cache && \
-    rm -rf /var/cache/apk/*
+# Build stage with minimal Node.js
+FROM node:20.18.0-bookworm-slim AS builder
+
+# Install security updates (debian-based)
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends dumb-init && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /app
@@ -24,8 +28,8 @@ RUN npm run build
 # Clean up build artifacts and dependencies to reduce attack surface
 RUN rm -rf node_modules package*.json src public /root/.npm /tmp/*
 
-# Production stage
-FROM nginx:1.27.2-alpine-slim
+# Production stage  
+FROM nginx:1.25.4-alpine3.19-slim
 
 # Install security updates and curl for health checks
 RUN apk update && apk upgrade --no-cache && \

@@ -1,6 +1,6 @@
 [project]
 name = "customer-management-backend"
-version = "0.1.0"
+dynamic = ["version"]
 description = "Django backend for customer management application"
 requires-python = ">=3.13"
 dependencies = [
@@ -28,16 +28,17 @@ dev = [
     "factory-boy>=3.3.0",
     "django-debug-toolbar>=4.2.0",
     "django-stubs>=5.2.5",
-    "djangorestframework-stubs>=3.16.3",
-    "types-toml>=0.10.8.20240310",
+    "setuptools-scm>=8.0.0",
 ]
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=45", "setuptools-scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
 
-[tool.hatch.build.targets.wheel]
-packages = ["customer_management", "customers", "config"]
+[tool.setuptools_scm]
+write_to = "customer_management/_version.py"
+version_scheme = "post-release"
+local_scheme = "no-local-version"
 
 [tool.black]
 line-length = 88

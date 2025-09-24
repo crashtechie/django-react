@@ -1,0 +1,32 @@
+{
+  "name": "customer-management",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Customer Management System with Django backend and React frontend",
+  "workspaces": [
+    "frontend",
+    "e2e-tests"
+  ],
+  "scripts": {
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "build:frontend": "npm run build --workspace=frontend",
+    "test:frontend": "npm run test --workspace=frontend",
+    "lint:frontend": "npm run lint --workspace=frontend",
+    "dev:e2e": "npm run dev --workspace=e2e-tests",
+    "test:e2e": "npm run test --workspace=e2e-tests",
+    "prepare": "husky install",
+    "commitlint": "commitlint --edit"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "husky": "^8.0.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crashtechie/django-react.git"
+  }
+}
