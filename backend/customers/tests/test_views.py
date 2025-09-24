@@ -1,11 +1,6 @@
-from decimal import Decimal
-from typing import Any, Dict, List
-
-from django.test import TestCase
 from django.urls import reverse
 from rest_framework import status
-from rest_framework.response import Response
-from rest_framework.test import APIClient, APITestCase
+from rest_framework.test import APITestCase
 
 from customers.models import Customer
 

@@ -49,8 +49,6 @@ class Customer(models.Model):
 
     def clean(self):
         """Custom validation for the model."""
-        from django.core.exceptions import ValidationError  # type: ignore
-
         # Capitalize names
         if self.first_name:
             self.first_name = self.first_name.strip().title()

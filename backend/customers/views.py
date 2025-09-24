@@ -1,6 +1,6 @@
 from django.db.models import Q  # type: ignore
 from django_filters.rest_framework import DjangoFilterBackend  # type: ignore
-from rest_framework import filters, status, viewsets  # type: ignore
+from rest_framework import filters, viewsets  # type: ignore
 from rest_framework.decorators import action  # type: ignore
 from rest_framework.response import Response  # type: ignore
 

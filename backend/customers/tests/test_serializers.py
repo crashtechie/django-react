@@ -1,5 +1,4 @@
 from django.test import TestCase
-from rest_framework.test import APITestCase
 
 from customers.models import Customer
 from customers.serializers import CustomerListSerializer, CustomerSerializer
