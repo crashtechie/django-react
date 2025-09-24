@@ -1,6 +1,7 @@
 """
 Debug test to verify Django settings in CI environment
 """
+
 from django.conf import settings
 from django.test import TestCase
 
@@ -15,20 +16,22 @@ class DebugSettingsTest(TestCase):
 
     def test_rest_framework_settings(self):
         """Verify REST framework permissions."""
-        rest_framework_settings = getattr(settings, 'REST_FRAMEWORK', {})
+        rest_framework_settings = getattr(settings, "REST_FRAMEWORK", {})
         print(f"REST_FRAMEWORK settings: {rest_framework_settings}")
-        
-        permission_classes = rest_framework_settings.get('DEFAULT_PERMISSION_CLASSES', [])
+
+        permission_classes = rest_framework_settings.get(
+            "DEFAULT_PERMISSION_CLASSES", []
+        )
         print(f"Default permission classes: {permission_classes}")
-        
-        auth_classes = rest_framework_settings.get('DEFAULT_AUTHENTICATION_CLASSES', [])
+
+        auth_classes = rest_framework_settings.get("DEFAULT_AUTHENTICATION_CLASSES", [])
         print(f"Default authentication classes: {auth_classes}")
-        
+
         self.assertIn("rest_framework.permissions.AllowAny", permission_classes)
         self.assertEqual(auth_classes, [])
 
     def test_csrf_middleware(self):
         """Verify CSRF middleware is disabled."""
-        middleware = getattr(settings, 'MIDDLEWARE', [])
+        middleware = getattr(settings, "MIDDLEWARE", [])
         print(f"Middleware: {middleware}")
         self.assertNotIn("django.middleware.csrf.CsrfViewMiddleware", middleware)
