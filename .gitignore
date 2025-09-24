@@ -113,6 +113,3 @@ dmypy.json
 *.tmp
 *.temp
 /test_results/
-
-/design_docs/
-/tools/
