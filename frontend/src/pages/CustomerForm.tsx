@@ -159,9 +159,9 @@ const CustomerForm = () => {
       
       // Navigate back to customer list on success
       navigate('/customers', { replace: true })
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Failed to save customer:', error)
-      const errorMessage = error.response?.data?.detail || 
+      const errorMessage = (error as { response?: { data?: { detail?: string } } })?.response?.data?.detail || 
         (isEditing ? 'Failed to update customer' : 'Failed to create customer')
       setErrors({ general: errorMessage })
       toast.error(errorMessage)
