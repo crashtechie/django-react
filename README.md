@@ -4,6 +4,8 @@ Version: 0.1.0
 
 A modern, full-stack customer management application built with Django, React, and Docker, designed with security and scalability in mind.
 
+> **Note**: Currently on `develop` branch for testing GitHub Actions workflows.
+
 ## 🏗️ Architecture
 
 - **Frontend**: React TypeScript with Vite, Tailwind CSS, and Nginx
