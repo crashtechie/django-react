@@ -110,9 +110,21 @@ uv run flake8 .
 5. **TypeScript Issues:**
    ```powershell
    # ❌ Wrong: npx tsc causes "This is not the tsc command you are looking for"
-   # ✅ Correct: Use pnpm exec to access workspace TypeScript
-   pnpm exec tsc --noEmit --project frontend/tsconfig.json
+   # ✅ Correct: Use pnpm with workspace filter for proper context
+   pnpm --filter customer-management-frontend exec tsc --noEmit
+   
+   # Alternative: Run from frontend directory
+   cd frontend
+   pnpm exec tsc --noEmit
    ```
+
+## ✅ Validation Results
+
+The CI/CD pipeline has been successfully validated with:
+- ✅ Local command execution 
+- ✅ act (local GitHub Actions runner)  
+- ✅ TypeScript check working in workspace context
+- ✅ All CI/CD commands tested and documented
 
 ### Act Limitations
 
