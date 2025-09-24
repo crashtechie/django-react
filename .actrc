@@ -8,5 +8,9 @@
 # Use act-latest for better compatibility
 --container-architecture linux/amd64
 
+# Network configuration to avoid port conflicts
+# act configuration
+--rm
+
 # Set default event
 --eventpath .github/workflows/events/push.json

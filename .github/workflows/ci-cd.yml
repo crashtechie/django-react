@@ -26,8 +26,9 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+        # Use dynamic port allocation to avoid conflicts
         ports:
-          - 5432:5432
+          - 5432
 
     steps:
       - name: Checkout code
@@ -44,6 +45,24 @@ jobs:
         uses: astral-sh/setup-uv@v2
         with:
           version: "latest"
+
+      - name: Wait for PostgreSQL
+        run: |
+          # Wait for PostgreSQL to be ready and discover the port
+          for i in {1..30}; do
+            if pg_isready -h localhost -p 5432 -U test_user; then
+              echo "PostgreSQL is ready on port 5432"
+              echo "POSTGRES_PORT=5432" >> $GITHUB_ENV
+              break
+            elif pg_isready -h localhost -p ${{ job.services.postgres.ports[5432] }} -U test_user 2>/dev/null; then
+              echo "PostgreSQL is ready on port ${{ job.services.postgres.ports[5432] }}"
+              echo "POSTGRES_PORT=${{ job.services.postgres.ports[5432] }}" >> $GITHUB_ENV
+              break
+            else
+              echo "Waiting for PostgreSQL... attempt $i/30"
+              sleep 2
+            fi
+          done
 
       - name: Install dependencies
         working-directory: ./backend
@@ -65,9 +84,19 @@ jobs:
       - name: Run tests
         working-directory: ./backend
         env:
+          # Use fallback approach: try dynamic port, fallback to 5432
           DATABASE_URL: postgresql://test_user:test_password@localhost:5432/test_db
           DJANGO_SETTINGS_MODULE: customer_management.test_settings
         run: |
+          # Try to connect with dynamic port first, fallback to 5432
+          DYNAMIC_PORT="${{ job.services.postgres.ports[5432] }}"
+          if [ ! -z "$DYNAMIC_PORT" ] && [ "$DYNAMIC_PORT" != "5432" ]; then
+            export DATABASE_URL="postgresql://test_user:test_password@localhost:$DYNAMIC_PORT/test_db"
+            echo "Using dynamic PostgreSQL port: $DYNAMIC_PORT"
+          else
+            echo "Using default PostgreSQL port: 5432"
+          fi
+          
           uv run python manage.py migrate
           uv run pytest --cov=. --cov-report=xml --cov-report=html
 
