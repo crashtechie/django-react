@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discussions
+    url: https://github.com/YOUR_USERNAME/YOUR_REPO/discussions
+    about: Ask questions and discuss improvements with the community
+  - name: 🔒 Security Issues
+    url: https://github.com/YOUR_USERNAME/YOUR_REPO/security/advisories
+    about: Report security vulnerabilities privately
