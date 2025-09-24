@@ -30,51 +30,51 @@ The test suite covers all critical aspects of the application:
    cd e2e-tests
    ```
 
-2. Install dependencies:
+2. Install dependencies (from project root):
    ```bash
-   npm install
+   pnpm install
    ```
 
 3. Install Playwright browsers:
    ```bash
-   npm run install-browsers
+   pnpm --filter e2e-tests install-browsers
    ```
 
 4. Install system dependencies (Linux/WSL only):
    ```bash
-   npm run install-deps
+   pnpm --filter e2e-tests install-deps
    ```
 
 ### Running Tests
 
 #### Run all tests
 ```bash
-npm test
+pnpm --filter e2e-tests test
 ```
 
 #### Run tests in headed mode (visible browser)
 ```bash
-npm run test:headed
+pnpm --filter e2e-tests test:headed
 ```
 
 #### Run tests with UI mode (interactive)
 ```bash
-npm run test:ui
+pnpm --filter e2e-tests test:ui
 ```
 
 #### Debug tests
 ```bash
-npm run test:debug
+pnpm --filter e2e-tests test:debug
 ```
 
 #### View test report
 ```bash
-npm run test:report
+pnpm --filter e2e-tests test:report
 ```
 
 #### Generate test code
 ```bash
-npm run test:codegen
+pnpm --filter e2e-tests test:codegen
 ```
 
 ### Running Specific Tests
@@ -170,7 +170,7 @@ Playwright generates multiple report formats:
 
 View reports with:
 ```bash
-npm run test:report
+pnpm --filter e2e-tests test:report
 ```
 
 ## 🚀 CI/CD Integration
@@ -180,19 +180,13 @@ The tests are configured for continuous integration:
 ### GitHub Actions Example
 ```yaml
 - name: Install dependencies
-  run: |
-    cd e2e-tests
-    npm ci
+  run: pnpm install
 
 - name: Install Playwright Browsers
-  run: |
-    cd e2e-tests
-    npx playwright install
+  run: pnpm --filter e2e-tests exec playwright install
 
 - name: Run Playwright tests
-  run: |
-    cd e2e-tests
-    npm test
+  run: pnpm --filter e2e-tests test
 
 - name: Upload test results
   uses: actions/upload-artifact@v3
@@ -210,10 +204,10 @@ The tests are configured for continuous integration:
 npm run test:headed
 
 # Run in debug mode (step through)
-npm run test:debug
+pnpm --filter e2e-tests test:debug
 
 # Interactive UI mode
-npm run test:ui
+pnpm --filter e2e-tests test:ui
 ```
 
 ### Trace Analysis
@@ -310,7 +304,7 @@ Current test coverage includes:
 
 1. **Server not running**: Ensure frontend (3000) and backend (8000) are running
 2. **Port conflicts**: Check if ports are available
-3. **Browser installation**: Run `npm run install-browsers`
+3. **Browser installation**: Run `pnpm --filter e2e-tests install-browsers`
 4. **Permissions**: Ensure proper file permissions for test artifacts
 
 ### Getting Help

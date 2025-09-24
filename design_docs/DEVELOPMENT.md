@@ -4,17 +4,24 @@
 
 To resolve the TypeScript/linting issues you're seeing, you have two options:
 
-### Option 1: Install Node.js Dependencies (Recommended for development)
+### Option 1: Install Dependencies (Recommended for development)
 
 1. **Install Node.js** (if not already installed):
    - Download from https://nodejs.org/
    - Choose the LTS version
 
-2. **Install frontend dependencies**:
+2. **Install pnpm** (modern package manager with workspace support):
    ```powershell
-   cd frontend
-   npm install
+   npm install -g pnpm
    ```
+
+3. **Install all workspace dependencies**:
+   ```powershell
+   # From project root
+   pnpm install
+   ```
+
+This will install dependencies for all workspaces (frontend, e2e-tests) and resolve all the "Cannot find module" errors.
 
 This will resolve all the "Cannot find module" errors and provide proper IntelliSense.
 
@@ -31,7 +38,7 @@ If you prefer to work entirely in Docker without local dependencies:
 
 ## What the errors mean:
 
-- **"Cannot find module" errors**: These occur because npm dependencies aren't installed locally. The code will work fine in Docker containers where dependencies are installed.
+- **"Cannot find module" errors**: These occur because pnpm dependencies aren't installed locally. The code will work fine in Docker containers where dependencies are installed.
 
 - **"Unknown at rule @tailwind" errors**: These are CSS linting issues that don't affect functionality. They can be resolved by installing the Tailwind CSS extension for VS Code.
 
@@ -51,7 +58,14 @@ If you prefer to work entirely in Docker without local dependencies:
 ✅ **TypeScript configuration is correct** - Just missing local dependencies
 ✅ **Build process works** - Docker builds will install all required packages
 
-The 206 "problems" you're seeing are primarily:
-- Missing local npm dependencies (easily fixed by running `npm install`)
+The problems you might see are primarily:
+- Missing local pnpm dependencies (easily fixed by running `pnpm install`)
 - CSS linting issues (cosmetic, doesn't affect functionality)
 - TypeScript IntelliSense issues (resolved with dependency installation)
+
+## New pnpm Workspace Features:
+
+✅ **Workspace Support** - Single `pnpm install` manages all project dependencies
+✅ **Better Performance** - Faster installs with efficient dependency linking  
+✅ **Improved CI/CD** - Resolves npm workspace bugs that caused CI failures
+✅ **Optional Dependencies** - Proper handling of Rollup and other optional deps

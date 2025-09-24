@@ -8,7 +8,7 @@ A modern, full-stack customer management application built with Django, React, a
 
 ## 🏗️ Architecture
 
-- **Frontend**: React TypeScript with Vite, Tailwind CSS, and Nginx
+- **Frontend**: React TypeScript with Vite, Tailwind CSS, Nginx, and pnpm workspaces
 - **Backend**: Django with Python 3.13, PostgreSQL, and uv package management
 - **Database**: Encrypted PostgreSQL with connection pooling
 - **Infrastructure**: Docker Compose with multi-stage builds
@@ -34,6 +34,7 @@ A modern, full-stack customer management application built with Django, React, a
 
 - Docker and Docker Compose
 - Git
+- pnpm (for frontend development)
 
 ### Setup
 

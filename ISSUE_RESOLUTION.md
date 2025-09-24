@@ -107,15 +107,27 @@ This document summarizes the 21+ issues that were identified and resolved in the
 
 2. **Update Dependencies:** Install updated packages
    ```bash
-   cd frontend && npm install
+   pnpm install
    ```
 
 3. **Security Scanning:** Regular vulnerability assessments
    ```bash
-   npm audit
+   pnpm audit
    docker scan <image>
    ```
 
 4. **Code Review:** Review the implemented API integrations and error handling
 
-All critical issues have been resolved, and the project now has proper automated versioning, cleaner code, better error handling, and improved security posture.
+### 8. Package Manager Migration (2024-09-24) ⭐️
+**Issue:** CI/CD failures due to npm workspace limitations and Rollup optional dependency bugs
+- **Problem:** Persistent failures with `npm ci`, package-lock.json conflicts, Rollup optional dependencies
+- **Solution:** Migrated to pnpm for superior workspace management
+- **Changes:**
+  - Updated `.github/workflows/ci-cd.yml` to use pnpm/action-setup
+  - Converted all scripts to use `pnpm --filter` commands
+  - Created `pnpm-workspace.yaml` configuration
+  - Removed npm lockfiles, generated `pnpm-lock.yaml`
+  - Updated documentation to reflect pnpm usage
+- **Benefits:** Resolved workspace bugs, faster installs, better optional dependency handling
+
+All critical issues have been resolved, and the project now has proper automated versioning, cleaner code, better error handling, improved security posture, and robust CI/CD with pnpm workspace management.

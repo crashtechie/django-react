@@ -8,12 +8,12 @@
     "e2e-tests"
   ],
   "scripts": {
-    "dev:frontend": "npm run dev --workspace=frontend",
-    "build:frontend": "npm run build --workspace=frontend",
-    "test:frontend": "npm run test --workspace=frontend",
-    "lint:frontend": "npm run lint --workspace=frontend",
-    "dev:e2e": "npm run dev --workspace=e2e-tests",
-    "test:e2e": "npm run test --workspace=e2e-tests",
+    "dev:frontend": "pnpm --filter frontend dev",
+    "build:frontend": "pnpm --filter frontend build",
+    "test:frontend": "pnpm --filter frontend test",
+    "lint:frontend": "pnpm --filter frontend lint",
+    "dev:e2e": "pnpm --filter e2e-tests dev",
+    "test:e2e": "pnpm --filter e2e-tests test",
     "prepare": "husky install",
     "commitlint": "commitlint --edit"
   },

@@ -92,23 +92,22 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Clean install dependencies
-        run: |
-          # Remove any cached node_modules to ensure fresh install
-          rm -rf node_modules frontend/node_modules
-          # Install with proper optional dependencies handling
-          npm install
-          # Explicitly install frontend dependencies to ensure optional deps work
-          cd frontend && npm install --include=optional
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Run linting
-        run: npm run lint --workspace=frontend
+        run: pnpm --filter frontend lint
 
       - name: Run type checking
-        run: npm run typecheck --workspace=frontend || npx tsc --noEmit --project frontend/tsconfig.json
+        run: pnpm --filter frontend typecheck || npx tsc --noEmit --project frontend/tsconfig.json
 
       - name: Run tests
-        run: npm run test:coverage --workspace=frontend || (cd frontend && npm run test:coverage)
+        run: pnpm --filter frontend test:coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
@@ -117,7 +116,7 @@ jobs:
           flags: frontend
 
       - name: Build application
-        run: npm run build --workspace=frontend
+        run: pnpm --filter frontend build
 
   security-scan:
     name: Security Scan
