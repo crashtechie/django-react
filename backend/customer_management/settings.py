@@ -161,6 +161,9 @@ CORS_ALLOWED_ORIGINS = config.get("cors", {}).get(
 CORS_ALLOW_CREDENTIALS = True
 
 # Logging
+import os
+os.makedirs(BASE_DIR / "logs", exist_ok=True)
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
