@@ -91,10 +91,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
-      - name: Install dependencies (workspace)
-        run: npm ci
+      - name: Clean install dependencies
+        run: |
+          # Remove any cached node_modules to ensure fresh install
+          rm -rf node_modules frontend/node_modules
+          # Install with proper optional dependencies handling
+          npm install
+          # Explicitly install frontend dependencies to ensure optional deps work
+          cd frontend && npm install --include=optional
 
       - name: Run linting
         run: npm run lint --workspace=frontend
