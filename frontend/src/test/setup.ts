@@ -57,7 +57,7 @@ jest.mock('react-hot-toast', () => ({
 }));
 
 // Export mocks for test access
-(global as any).__TEST_MOCKS__ = {
+(global as unknown as { __TEST_MOCKS__: unknown }).__TEST_MOCKS__ = {
   navigate: mockNavigate,
   useParams: mockUseParams,
   customerApi: mockCustomerApi,

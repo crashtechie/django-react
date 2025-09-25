@@ -6,13 +6,15 @@ import CustomerForm from '../pages/CustomerForm'
 import '@testing-library/jest-dom'
 
 // Access global test mocks
+interface TestMocks {
+  navigate: ReturnType<typeof vi.fn>;
+  useParams: ReturnType<typeof vi.fn>;
+  customerApi: Record<string, ReturnType<typeof vi.fn>>;
+  toast: Record<string, ReturnType<typeof vi.fn>>;
+}
+
 declare global {
-  var __TEST_MOCKS__: {
-    navigate: ReturnType<typeof vi.fn>
-    useParams: ReturnType<typeof vi.fn>
-    customerApi: any
-    toast: any
-  }
+  var __TEST_MOCKS__: TestMocks;
 }
 
 const renderWithRouter = (initialEntries = ['/customers/add']) => {

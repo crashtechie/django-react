@@ -1,5 +1,12 @@
 // Test helpers for Jest
-export const getMocks = () => (global as any).__TEST_MOCKS__;
+interface TestMocks {
+  navigate: jest.Mock;
+  useParams: jest.Mock;
+  customerApi: Record<string, jest.Mock>;
+  toast: Record<string, jest.Mock>;
+}
+
+export const getMocks = (): TestMocks => (global as unknown as { __TEST_MOCKS__: TestMocks }).__TEST_MOCKS__;
 
 export const resetAllMocks = () => {
   const mocks = getMocks();
@@ -9,14 +16,14 @@ export const resetAllMocks = () => {
   mocks.useParams.mockReturnValue({ id: undefined });
   
   // Reset API mocks
-  Object.values(mocks.customerApi).forEach((mockFn: any) => {
+  Object.values(mocks.customerApi).forEach((mockFn: jest.Mock) => {
     if (typeof mockFn.mockClear === 'function') {
       mockFn.mockClear();
     }
   });
   
   // Reset toast mocks
-  Object.values(mocks.toast).forEach((mockFn: any) => {
+  Object.values(mocks.toast).forEach((mockFn: jest.Mock) => {
     if (typeof mockFn.mockClear === 'function') {
       mockFn.mockClear();
     }
