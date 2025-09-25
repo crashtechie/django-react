@@ -48,14 +48,14 @@ A modern, full-stack customer management application built with Django, React, a
    
    **Linux/Mac:**
    ```bash
-   chmod +x scripts/setup-dev.sh
-   ./scripts/setup-dev.sh
+   chmod +x scripts/development/setup-dev.sh
+   ./scripts/development/setup-dev.sh
    ```
    
    **Windows (PowerShell):**
    ```powershell
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-   .\scripts\setup-dev.ps1
+   .\scripts\development\setup-dev.ps1
    ```
 
 3. **Access the application**
@@ -72,7 +72,6 @@ django-react/
 ├── backend/                    # Django application
 │   ├── customer_management/    # Django project
 │   ├── customers/             # Customer app
-│   ├── config/               # TOML configurations
 │   └── Dockerfile
 ├── frontend/                  # React application  
 │   ├── src/
@@ -81,11 +80,23 @@ django-react/
 │   │   ├── services/        # API services
 │   │   └── types/          # TypeScript definitions
 │   └── Dockerfile
-├── .github/workflows/        # CI/CD pipelines
-├── scripts/                 # Development scripts
-├── config/                  # System configurations
-├── logs/                    # Application logs
-└── docker-compose.yml       # Container orchestration
+├── docs/                      # All documentation
+│   ├── api/                  # API documentation
+│   ├── development/          # Development guides
+│   ├── design/              # Design documents
+│   └── troubleshooting/     # Issue resolution
+├── config/                    # System configurations
+│   ├── docker/              # Docker configs
+│   ├── nginx/               # Nginx configs
+│   └── logging/             # Logging configs
+├── scripts/                   # Development scripts
+│   ├── development/         # Setup scripts
+│   └── utilities/           # Utility scripts
+├── tools/                     # Development tools
+│   └── github/              # GitHub automation
+├── .github/workflows/         # CI/CD pipelines
+├── logs/                      # Application logs
+└── docker-compose.yml         # Container orchestration
 ```
 
 ## 📝 API Documentation
@@ -111,13 +122,13 @@ django-react/
 **Windows (PowerShell):**
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-.\scripts\setup-dev.ps1
+.\scripts\development\setup-dev.ps1
 ```
 
 **Linux/Mac:**
 ```bash
-chmod +x scripts/setup-dev.sh
-./scripts/setup-dev.sh
+chmod +x scripts/development/setup-dev.sh
+./scripts/development/setup-dev.sh
 ```
 
 The setup script will:
@@ -162,13 +173,15 @@ The project includes comprehensive testing:
 
 ## 📚 Documentation
 
-- [**Versioning Guide**](./VERSIONING.md) - Semantic versioning and conventional commits
+- [**Documentation Index**](./docs/README.md) - Complete documentation overview
+- [**Versioning Guide**](./docs/development/versioning.md) - Semantic versioning and conventional commits
 - [**API Documentation**](./backend/README.md) - Backend API reference
 - [**Frontend Guide**](./frontend/README.md) - React application documentation
 - [**Frontend Testing**](./frontend/TESTING.md) - Frontend testing and mock system guide
-- [**Issue #16 Analysis**](./ISSUE_16_ANALYSIS.md) - React hooks test environment troubleshooting
+- [**Issue #16 Analysis**](./docs/troubleshooting/issue-16-analysis.md) - React hooks test environment troubleshooting
 - [**E2E Testing**](./e2e-tests/README.md) - End-to-end testing setup
 - [**DevOps Tools**](./tools/README.md) - Infrastructure and monitoring tools
+- [**Local GitHub Actions**](./docs/development/local-github-actions.md) - Running CI/CD pipelines locally with act
 
 ## 🏷️ Versioning
 
@@ -178,7 +191,7 @@ This project uses [Semantic Versioning](https://semver.org/) with automated rele
 - **Minor**: New features (e.g., `feat: add customer search`)
 - **Patch**: Bug fixes (e.g., `fix: resolve validation error`)
 
-See [VERSIONING.md](./VERSIONING.md) for detailed information.
+See [VERSIONING.md](./docs/development/versioning.md) for detailed information.
 
 ---
 

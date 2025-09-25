@@ -14,6 +14,10 @@
     "lint:frontend": "pnpm --filter frontend lint",
     "dev:e2e": "pnpm --filter e2e-tests dev",
     "test:e2e": "pnpm --filter e2e-tests test",
+    "test:all": "cd tests && ./run-tests.sh all",
+    "test:backend": "cd tests && ./run-tests.sh backend",
+    "test:unit": "cd tests && ./run-tests.sh backend && cd tests && ./run-tests.sh frontend",
+    "test:integration": "cd tests && ./run-tests.sh e2e",
     "prepare": "husky install",
     "commitlint": "commitlint --edit"
   },

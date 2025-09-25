@@ -8,8 +8,8 @@ help:  ## Show this help message
 
 setup: ## Initial project setup
 	@echo "Setting up Customer Management System..."
-	@chmod +x scripts/setup-dev.sh
-	@./scripts/setup-dev.sh
+	@chmod +x scripts/development/setup-dev.sh
+	@./scripts/development/setup-dev.sh
 
 build: ## Build all containers
 	docker-compose build
