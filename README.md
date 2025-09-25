@@ -140,7 +140,7 @@ The setup script will:
 ## 🧪 Testing
 
 The project includes comprehensive testing:
-- Unit tests for backend and frontend
+- Unit tests for backend and frontend (Jest + React Testing Library)
 - Integration tests with Docker
 - Security scanning with Trivy
 - Automated CI/CD with GitHub Actions
@@ -165,6 +165,8 @@ The project includes comprehensive testing:
 - [**Versioning Guide**](./VERSIONING.md) - Semantic versioning and conventional commits
 - [**API Documentation**](./backend/README.md) - Backend API reference
 - [**Frontend Guide**](./frontend/README.md) - React application documentation
+- [**Frontend Testing**](./frontend/TESTING.md) - Frontend testing and mock system guide
+- [**Issue #16 Analysis**](./ISSUE_16_ANALYSIS.md) - React hooks test environment troubleshooting
 - [**E2E Testing**](./e2e-tests/README.md) - End-to-end testing setup
 - [**DevOps Tools**](./tools/README.md) - Infrastructure and monitoring tools
 

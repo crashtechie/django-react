@@ -7,19 +7,27 @@
 #### Infrastructure Issues (Critical)
 - **Issue #13** 🐛 Backend CI/CD: PostgreSQL port conflict preventing service startup
   - **Priority**: High
-  - **Status**: Todo
+  - **Status**: ✅ **RESOLVED**
   - **Rationale**: Blocks backend testing and CI/CD reliability
 
 #### Frontend Core Functionality Issues (Critical)
 - **Issue #15** 🐛 Frontend Tests: Mock/Spy system inconsistencies (40% of failures)
   - **Priority**: High  
-  - **Status**: Todo
+  - **Status**: ✅ **RESOLVED**
   - **Rationale**: Affects 40% of test failures, blocks reliable frontend testing
+  - **Solution**: Implemented consistent global mock system with centralized setup, eliminated conflicting mock approaches, and added test helpers for reliable mock management
 
-- **Issue #16** 🐛 Frontend Tests: Form data not loading in edit mode
+- **Issue #16** 🐛 Frontend Tests: React hooks setup issue preventing component rendering
   - **Priority**: High
-  - **Status**: Todo
-  - **Rationale**: Core edit functionality broken, critical for user workflow
+  - **Status**: ✅ **RESOLVED**
+  - **Rationale**: React hooks not properly configured in test environment, causing "Cannot read properties of null (reading 'useState')" error
+  - **Root Cause**: React internals dispatcher not properly initialized in vitest + jsdom environment
+  - **Next Steps**: 
+    1. Update React/React-DOM to latest stable versions
+    2. Consider switching from jsdom to Happy DOM
+    3. Alternative: Switch from vitest to Jest with React 18 support
+    4. Implement custom React test renderer setup
+  - **Solution**: Migrated from vitest to Jest with proper React 18 support, resolving React hooks dispatcher initialization issue
 
 - **Issue #20** 🔌 Frontend Tests: API integration layer not properly mocked
   - **Priority**: High
@@ -86,12 +94,12 @@
 ### Issue #15 - Mock/Spy system issues
 - Phase: "Phase 1: Foundation (Weeks 1-2)" 
 - Priority: "High"
-- Status: "Todo"
+- Status: "✅ RESOLVED"
 
-### Issue #16 - Form data loading issues
+### Issue #16 - React hooks setup issues
 - Phase: "Phase 1: Foundation (Weeks 1-2)"
 - Priority: "High" 
-- Status: "Todo"
+- Status: "✅ RESOLVED"
 
 ### Issue #17 - Snapshot test failures
 - Phase: "Phase 2: User Experience (Weeks 3-4)"

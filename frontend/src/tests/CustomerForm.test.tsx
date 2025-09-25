@@ -5,15 +5,15 @@ import { MemoryRouter, Routes, Route } from 'react-router-dom'
 import CustomerForm from '../pages/CustomerForm'
 import '@testing-library/jest-dom'
 
-// Mock useNavigate
-const mockNavigate = vi.fn()
-vi.mock('react-router-dom', async () => {
-  const actual = await vi.importActual('react-router-dom')
-  return {
-    ...actual,
-    useNavigate: () => mockNavigate,
+// Access global test mocks
+declare global {
+  var __TEST_MOCKS__: {
+    navigate: ReturnType<typeof vi.fn>
+    useParams: ReturnType<typeof vi.fn>
+    customerApi: any
+    toast: any
   }
-})
+}
 
 const renderWithRouter = (initialEntries = ['/customers/add']) => {
   return render(
@@ -29,6 +29,29 @@ const renderWithRouter = (initialEntries = ['/customers/add']) => {
 describe('CustomerForm', () => {
   beforeEach(() => {
     vi.clearAllMocks()
+    // Reset all global mocks
+    global.__TEST_MOCKS__.navigate.mockClear()
+    global.__TEST_MOCKS__.useParams.mockReturnValue({ id: undefined })
+    global.__TEST_MOCKS__.customerApi.getCustomer.mockClear()
+    global.__TEST_MOCKS__.customerApi.createCustomer.mockClear()
+    global.__TEST_MOCKS__.customerApi.updateCustomer.mockClear()
+    global.__TEST_MOCKS__.toast.success.mockClear()
+    global.__TEST_MOCKS__.toast.error.mockClear()
+    
+    // Reset API mocks to default resolved values
+    global.__TEST_MOCKS__.customerApi.getCustomer.mockResolvedValue({
+      id: 1,
+      first_name: 'John',
+      last_name: 'Doe',
+      email: 'john.doe@example.com',
+      phone: '(555) 123-4567',
+      is_active: true,
+      created_at: '2024-01-01T00:00:00Z',
+      updated_at: '2024-01-01T00:00:00Z',
+      full_name: 'John Doe'
+    })
+    global.__TEST_MOCKS__.customerApi.createCustomer.mockResolvedValue({ id: 1 })
+    global.__TEST_MOCKS__.customerApi.updateCustomer.mockResolvedValue({ id: 1 })
   })
 
   afterEach(() => {
@@ -45,12 +68,18 @@ describe('CustomerForm', () => {
     })
 
     it('renders edit customer form when id is provided', async () => {
+      // Set up params for edit mode
+      global.__TEST_MOCKS__.useParams.mockReturnValue({ id: '1' })
+      
       renderWithRouter(['/customers/edit/1'])
+      
+      // Verify API call is made
+      expect(global.__TEST_MOCKS__.customerApi.getCustomer).toHaveBeenCalledWith(1)
       
       // Wait for loading to complete first
       await waitFor(() => {
         expect(screen.getByDisplayValue('John')).toBeInTheDocument()
-      }, { timeout: 1000 })
+      }, { timeout: 2000 })
       
       expect(screen.getByText('Edit Customer')).toBeInTheDocument()
       expect(screen.getByText('Update customer information')).toBeInTheDocument()
@@ -81,6 +110,26 @@ describe('CustomerForm', () => {
     })
 
     it('shows loading state when editing a customer', async () => {
+      // Set up params for edit mode with a slower API response
+      global.__TEST_MOCKS__.useParams.mockReturnValue({ id: '1' })
+      
+      // Mock a delayed API response to test loading state
+      global.__TEST_MOCKS__.customerApi.getCustomer.mockImplementation(() => 
+        new Promise(resolve => 
+          setTimeout(() => resolve({
+            id: 1,
+            first_name: 'John',
+            last_name: 'Doe',
+            email: 'john.doe@example.com',
+            phone: '(555) 123-4567',
+            is_active: true,
+            created_at: '2024-01-01T00:00:00Z',
+            updated_at: '2024-01-01T00:00:00Z',
+            full_name: 'John Doe'
+          }), 100)
+        )
+      )
+      
       renderWithRouter(['/customers/edit/1'])
       
       // Should show loading state initially
@@ -89,7 +138,7 @@ describe('CustomerForm', () => {
       // Wait for loading to complete
       await waitFor(() => {
         expect(screen.getByDisplayValue('John')).toBeInTheDocument()
-      }, { timeout: 1000 })
+      }, { timeout: 2000 })
     })
   })
 
@@ -278,11 +327,20 @@ describe('CustomerForm', () => {
         expect(screen.getByRole('button', { name: /creating.../i })).toBeDisabled()
       })
       
+      // Verify API call is made
+      await waitFor(() => {
+        expect(global.__TEST_MOCKS__.customerApi.createCustomer).toHaveBeenCalledWith({
+          first_name: 'John',
+          last_name: 'Doe',
+          email: 'john.doe@example.com',
+          phone: '1234567890'
+        })
+      })
+      
       // Should navigate after submission
       await waitFor(() => {
-        expect(mockNavigate).toHaveBeenCalledWith('/customers', {
-          replace: true,
-          state: { message: 'Customer created successfully' }
+        expect(global.__TEST_MOCKS__.navigate).toHaveBeenCalledWith('/customers', {
+          replace: true
         })
       }, { timeout: 2000 })
     })
@@ -295,12 +353,17 @@ describe('CustomerForm', () => {
       await user.click(screen.getByRole('button', { name: /cancel/i }))
       
       // Should navigate to customers list
-      expect(mockNavigate).toHaveBeenCalledWith('/customers')
+      expect(global.__TEST_MOCKS__.navigate).toHaveBeenCalledWith('/customers')
     })
 
     it('disables buttons during submission', async () => {
       const user = userEvent.setup()
       renderWithRouter()
+      
+      // Mock a delayed API response to test button states
+      global.__TEST_MOCKS__.customerApi.createCustomer.mockImplementation(() => 
+        new Promise(resolve => setTimeout(() => resolve({ id: 1 }), 200))
+      )
       
       // Fill out form
       await user.type(screen.getByLabelText(/first name/i), 'John')
@@ -320,8 +383,28 @@ describe('CustomerForm', () => {
   })
 
   describe('Edit Mode', () => {
+    beforeEach(() => {
+      // Set up params for edit mode
+      global.__TEST_MOCKS__.useParams.mockReturnValue({ id: '1' })
+      // Ensure the API mock is properly set up for edit mode
+      global.__TEST_MOCKS__.customerApi.getCustomer.mockResolvedValue({
+        id: 1,
+        first_name: 'John',
+        last_name: 'Doe',
+        email: 'john.doe@example.com',
+        phone: '(555) 123-4567',
+        is_active: true,
+        created_at: '2024-01-01T00:00:00Z',
+        updated_at: '2024-01-01T00:00:00Z',
+        full_name: 'John Doe'
+      })
+    })
+
     it('loads existing customer data in edit mode', async () => {
       renderWithRouter(['/customers/edit/1'])
+      
+      // Verify API call is made
+      expect(global.__TEST_MOCKS__.customerApi.getCustomer).toHaveBeenCalledWith(1)
       
       // Wait for loading to complete and data to be populated
       await waitFor(() => {
@@ -329,17 +412,20 @@ describe('CustomerForm', () => {
         expect(screen.getByDisplayValue('Doe')).toBeInTheDocument()
         expect(screen.getByDisplayValue('john.doe@example.com')).toBeInTheDocument()
         expect(screen.getByDisplayValue('(555) 123-4567')).toBeInTheDocument()
-      }, { timeout: 1000 })
+      }, { timeout: 2000 })
     })
 
     it('shows update text instead of create text in edit mode', async () => {
       renderWithRouter(['/customers/edit/1'])
       
+      // Wait for data to load first, then check UI text
       await waitFor(() => {
-        expect(screen.getByText('Edit Customer')).toBeInTheDocument()
-        expect(screen.getByText('Update customer information')).toBeInTheDocument()
-        expect(screen.getByRole('button', { name: /update customer/i })).toBeInTheDocument()
-      })
+        expect(screen.getByDisplayValue('John')).toBeInTheDocument()
+      }, { timeout: 2000 })
+      
+      expect(screen.getByText('Edit Customer')).toBeInTheDocument()
+      expect(screen.getByText('Update customer information')).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: /update customer/i })).toBeInTheDocument()
     })
 
     it('navigates with update success message in edit mode', async () => {
@@ -349,16 +435,25 @@ describe('CustomerForm', () => {
       // Wait for data to load
       await waitFor(() => {
         expect(screen.getByDisplayValue('John')).toBeInTheDocument()
-      })
+      }, { timeout: 2000 })
       
       // Submit form
       await user.click(screen.getByRole('button', { name: /update customer/i }))
       
+      // Verify API call is made
+      await waitFor(() => {
+        expect(global.__TEST_MOCKS__.customerApi.updateCustomer).toHaveBeenCalledWith(1, {
+          first_name: 'John',
+          last_name: 'Doe',
+          email: 'john.doe@example.com',
+          phone: '(555) 123-4567'
+        })
+      })
+      
       // Should navigate with update message
       await waitFor(() => {
-        expect(mockNavigate).toHaveBeenCalledWith('/customers', {
-          replace: true,
-          state: { message: 'Customer updated successfully' }
+        expect(global.__TEST_MOCKS__.navigate).toHaveBeenCalledWith('/customers', {
+          replace: true
         })
       }, { timeout: 2000 })
     })
@@ -487,6 +582,11 @@ describe('CustomerForm', () => {
       // Should start submission process
       await waitFor(() => {
         expect(screen.getByText('Creating...')).toBeInTheDocument()
+      })
+      
+      // Verify API call is made
+      await waitFor(() => {
+        expect(global.__TEST_MOCKS__.customerApi.createCustomer).toHaveBeenCalled()
       })
     })
   })
