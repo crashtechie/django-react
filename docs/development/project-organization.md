@@ -4,73 +4,135 @@
 ### Phase 1: Foundation (Weeks 1-2) - Critical Infrastructure & Core Functionality
 **Priority: HIGH** - These are blocking issues that must be resolved first
 
-#### Infrastructure Issues (Critical)
+#### Test Infrastructure Issues (Critical)
+- **Issue #24** 🔧 Fix Jest Configuration Property Name
+  - **Priority**: High
+  - **Status**: Todo
+  - **Rationale**: Jest config uses incorrect property name preventing frontend tests from running
+
+- **Issue #25** 📦 Install Missing django_filters Dependency
+  - **Priority**: High
+  - **Status**: Todo
+  - **Rationale**: Backend tests fail with import error, blocks backend testing
+
+- **Issue #26** 🔍 Verify Test Path Resolution After Migration
+  - **Priority**: Medium
+  - **Status**: Todo
+  - **Rationale**: Need to verify all imports work after test file migration
+
+- **Issue #27** 🚀 Update CI/CD Pipelines for New Test Structure
+  - **Priority**: High
+  - **Status**: Todo
+  - **Rationale**: GitHub Actions may reference old test paths, could cause build failures
+
+#### Core Functionality Issues
+- **Issue #1** 🔄 Add Loading Spinner Component
+  - **Priority**: High
+  - **Status**: Todo
+  - **Rationale**: Critical for production - no loading feedback for users
+
+- **Issue #2** 🛡️ Implement Error Boundary Components
+  - **Priority**: High
+  - **Status**: Todo
+  - **Rationale**: Critical for production - graceful error handling
+
+- **Issue #3** 🧪 Comprehensive API Service Tests
+  - **Priority**: High
+  - **Status**: Todo
+  - **Rationale**: API service layer has 0% coverage, critical for deployment confidence
+
+- **Issue #4** 📋 Complete CustomerDetail Component Tests
+  - **Priority**: High
+  - **Status**: Todo
+  - **Rationale**: Core functionality testing - increase coverage from 16.66% to 85%+
+
+- **Issue #5** 📝 Complete CustomerForm Component Tests
+  - **Priority**: High
+  - **Status**: ✅ **DONE**
+  - **Rationale**: Form validation critical - increase coverage from 16.66% to 85%+
+
+#### Infrastructure Issues (Resolved)
 - **Issue #13** 🐛 Backend CI/CD: PostgreSQL port conflict preventing service startup
   - **Priority**: High
-  - **Status**: ✅ **RESOLVED**
+  - **Status**: ✅ **DONE**
   - **Rationale**: Blocks backend testing and CI/CD reliability
 
-#### Frontend Core Functionality Issues (Critical)
 - **Issue #15** 🐛 Frontend Tests: Mock/Spy system inconsistencies (40% of failures)
   - **Priority**: High  
-  - **Status**: ✅ **RESOLVED**
+  - **Status**: ✅ **DONE**
   - **Rationale**: Affects 40% of test failures, blocks reliable frontend testing
-  - **Solution**: Implemented consistent global mock system with centralized setup, eliminated conflicting mock approaches, and added test helpers for reliable mock management
 
-- **Issue #16** 🐛 Frontend Tests: React hooks setup issue preventing component rendering
+- **Issue #16** 🐛 Frontend Tests: Form data not loading in edit mode causing UI state failures
   - **Priority**: High
-  - **Status**: ✅ **RESOLVED** (Partial - Migration Complete, Cleanup Needed)
-  - **Rationale**: React hooks not properly configured in test environment, causing "Cannot read properties of null (reading 'useState')" error
-  - **Root Cause**: React internals dispatcher not properly initialized in vitest + jsdom environment
-  - **Solution**: Migrated from vitest to Jest with proper React 18 support, resolving React hooks dispatcher initialization issue
-  - **Remaining Tasks**:
-    1. Remove old vitest imports from test files
-    2. Update TypeScript configuration for Jest
-    3. Clean up mixed testing framework references
-    4. Fix TypeScript compilation errors in CI/CD pipeline
+  - **Status**: ✅ **DONE**
+  - **Rationale**: React hooks not properly configured in test environment
 
 - **Issue #20** 🔌 Frontend Tests: API integration layer not properly mocked
   - **Priority**: High
-  - **Status**: ✅ **RESOLVED**
+  - **Status**: ✅ **DONE**
   - **Rationale**: Core API functionality not tested, critical integration gap
-  - **Solution**: Implemented comprehensive API mocking system with global mock setup and test helpers
 
 - **Issue #23** 🔧 Frontend Tests: Complete vitest to Jest migration cleanup
   - **Priority**: High
-  - **Status**: ✅ **RESOLVED**
-  - **Rationale**: TypeScript compilation errors in CI/CD due to mixed testing framework imports, blocking pipeline completion
-  - **Solution**: Successfully migrated all test files from vitest to Jest, removed vitest configuration, updated TypeScript setup, and added Jest DOM type declarations
-  - **Completed Tasks**:
-    1. ✅ Removed vitest imports from all test files
-    2. ✅ Updated test files to use Jest syntax consistently
-    3. ✅ Fixed TypeScript configuration for Jest environment
-    4. ✅ Added Jest DOM type declarations for proper TypeScript support
-    5. ✅ Removed vitest.config.ts file
-    6. ✅ Updated Jest configuration with proper TypeScript support
+  - **Status**: ✅ **DONE**
+  - **Rationale**: TypeScript compilation errors in CI/CD due to mixed testing framework imports
 
-### Phase 2: User Experience (Weeks 3-4) - Test Quality & UI/UX
+### Phase 2: User Experience (Weeks 3-4) - UI/UX & Mobile Experience
 **Priority: MEDIUM** - Important for quality and user experience
 
-#### Test Quality & User Experience
+#### UI/UX Improvements
+- **Issue #6** 📱 Mobile-Responsive Customer Cards
+  - **Priority**: Medium
+  - **Status**: Todo
+  - **Rationale**: Mobile UX improvement - replace desktop table with mobile-friendly cards
+
+- **Issue #12** ⚡ Performance Optimization & Bundle Size
+  - **Priority**: Medium
+  - **Status**: Todo
+  - **Rationale**: User experience optimization - improve load times and Core Web Vitals
+
+#### Test Quality Issues
 - **Issue #17** 🧪 Frontend Tests: Snapshot test failures with incorrect expected values
   - **Priority**: Medium
   - **Status**: Todo
   - **Rationale**: Test reliability issue, affects development confidence
 
-- **Issue #21** 🔄 Frontend Tests: Loading states and button management not working properly  
-  - **Priority**: Medium
-  - **Status**: Todo
-  - **Rationale**: UI/UX issue affecting user experience
-
-- **Issue #18** ♿ Frontend Tests: Form accessibility role missing
+- **Issue #18** ♿ Frontend Tests: Form accessibility role missing causing test failures
   - **Priority**: Medium
   - **Status**: Todo
   - **Rationale**: Accessibility compliance, important for inclusive design
 
-### Phase 3: Production Features (Weeks 5-6) - Production Readiness
-**Priority: MEDIUM** - Production environment optimizations
+- **Issue #21** 🔄 Frontend Tests: Loading states and button management not working properly  
+  - **Priority**: High
+  - **Status**: Todo
+  - **Rationale**: UI/UX issue affecting user experience
 
-#### CI/CD & Performance Optimization  
+- **Issue #22** 📋 Epic: Resolve all CI/CD test failures identified in comprehensive testing
+  - **Priority**: High
+  - **Status**: Todo
+  - **Rationale**: Meta-issue tracking overall progress across all phases
+  - **Progress**: 4 / 9 (44%)
+
+### Phase 3: Production Features (Weeks 5-6) - Production Readiness
+**Priority: HIGH** - Production environment requirements
+
+#### Production Infrastructure
+- **Issue #7** 📊 Application Monitoring & Observability
+  - **Priority**: High
+  - **Status**: Todo
+  - **Rationale**: Production readiness - Prometheus, Grafana, structured logging
+
+- **Issue #8** 🔒 Security Hardening & Rate Limiting
+  - **Priority**: High
+  - **Status**: Todo
+  - **Rationale**: Production security - rate limiting, security headers, DDoS protection
+
+- **Issue #9** 💾 Automated Backup & Recovery System
+  - **Priority**: High
+  - **Status**: Todo
+  - **Rationale**: Data protection - automated backups with tested recovery procedures
+
+#### CI/CD Optimization  
 - **Issue #14** 🔧 Backend CI/CD: Codecov rate limiting prevents coverage upload
   - **Priority**: Medium
   - **Status**: Todo
@@ -81,32 +143,46 @@
   - **Status**: Todo
   - **Rationale**: CI environment optimization, test pipeline reliability
 
-### Epic Tracking
-- **Issue #22** 📋 Epic: Resolve all CI/CD test failures identified in comprehensive testing
-  - **Priority**: High
-  - **Status**: In Progress (Backend Complete, Frontend Partial)
-  - **Rationale**: Meta-issue tracking overall progress across all phases
-  - **Progress**: 
-    - ✅ Backend CI/CD: All tests passing (44/44)
-    - ⚠️ Frontend CI/CD: Linting fixed, type checking needs cleanup
+### Phase 4: Advanced Features (Weeks 7-8) - Power User Features
+**Priority: MEDIUM** - Advanced functionality for power users
+
+#### Advanced User Features
+- **Issue #10** 🔍 Advanced Search & Filtering
+  - **Priority**: Medium
+  - **Status**: Todo
+  - **Rationale**: Power user features - advanced search with filter combinations
+
+- **Issue #11** 📦 Bulk Operations for Customer Management
+  - **Priority**: Low
+  - **Status**: Todo
+  - **Rationale**: Efficiency features - bulk edit, delete, export functionality
+
+### Notes
+All issues are now organized into their appropriate phases based on priority and dependencies. Issue #22 serves as a tracking issue for CI/CD improvements across multiple phases.
 
 ---
 
 ## GitHub Project Sync
 
 **Project URL**: https://github.com/users/crashtechie/projects/6
-**Total Items**: 22 issues
-**Last Synced**: 2025-09-24
+**Total Items**: 27 issues
+**Last Synced**: 2025-09-25
 
 ### Current Project Status
-- **Done**: Issues #5, #13, #15, #16, #20 (5 completed)
-- **Todo**: Issues #1-4, #6-12, #14, #17-19, #21-22 (17 remaining)
+- **Done**: Issues #5, #13, #15, #16, #20, #23 (6 completed)
+- **Todo**: Issues #1-4, #6-12, #14, #17-19, #21-22, #24-27 (21 remaining)
 - **In Progress**: None currently
 
+### Recent Additions (Test Migration Issues)
+- **Issue #24**: Fix Jest Configuration Property Name
+- **Issue #25**: Install Missing django_filters Dependency  
+- **Issue #26**: Verify Test Path Resolution After Migration
+- **Issue #27**: Update CI/CD Pipelines for New Test Structure
+
 ### Status Alignment
-✅ Issues #13, #15, #16, #20 marked as Done in both docs and project
-✅ Issue #23 created: https://github.com/crashtechie/django-react/issues/23
-⚠️ Issue #23 needs to be manually added to project (requires project scope permissions)
+✅ Issues #5, #13, #15, #16, #20, #23 marked as Done in both docs and project
+✅ Issues #24-27 created for test migration fixes
+⚠️ New issues need to be manually added to project (requires project scope permissions)
 
 ---
 
