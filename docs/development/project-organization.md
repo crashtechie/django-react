@@ -5,11 +5,6 @@
 **Priority: HIGH** - These are blocking issues that must be resolved first
 
 #### Test Infrastructure Issues (Critical)
-- **Issue #24** 🔧 Fix Jest Configuration Property Name
-  - **Priority**: High
-  - **Status**: Todo
-  - **Rationale**: Jest config uses incorrect property name preventing frontend tests from running
-
 - **Issue #25** 📦 Install Missing django_filters Dependency
   - **Priority**: High
   - **Status**: Todo
@@ -76,6 +71,11 @@
   - **Priority**: High
   - **Status**: ✅ **DONE**
   - **Rationale**: TypeScript compilation errors in CI/CD due to mixed testing framework imports
+
+- **Issue #24** 🔧 Fix Jest Configuration Property Name
+  - **Priority**: High
+  - **Status**: ✅ **DONE**
+  - **Rationale**: Jest config uses incorrect property name preventing frontend tests from running
 
 ### Phase 2: User Experience (Weeks 3-4) - UI/UX & Mobile Experience
 **Priority: MEDIUM** - Important for quality and user experience
@@ -169,8 +169,8 @@ All issues are now organized into their appropriate phases based on priority and
 **Last Synced**: 2025-09-25
 
 ### Current Project Status
-- **Done**: Issues #5, #13, #15, #16, #20, #23 (6 completed)
-- **Todo**: Issues #1-4, #6-12, #14, #17-19, #21-22, #24-27 (21 remaining)
+- **Done**: Issues #5, #13, #15, #16, #20, #23, #24 (7 completed)
+- **Todo**: Issues #1-4, #6-12, #14, #17-19, #21-22, #25-27 (20 remaining)
 - **In Progress**: None currently
 
 ### Recent Additions (Test Migration Issues)
@@ -180,7 +180,7 @@ All issues are now organized into their appropriate phases based on priority and
 - **Issue #27**: Update CI/CD Pipelines for New Test Structure
 
 ### Status Alignment
-✅ Issues #5, #13, #15, #16, #20, #23 marked as Done in both docs and project
+✅ Issues #5, #13, #15, #16, #20, #23, #24 marked as Done in both docs and project
 ✅ Issues #24-27 created for test migration fixes
 ⚠️ New issues need to be manually added to project (requires project scope permissions)
 
