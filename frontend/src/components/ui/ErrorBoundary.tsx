@@ -1,4 +1,5 @@
 import { Component, ReactNode, ErrorInfo } from 'react'
+import { safeConsole } from '../../utils/logSanitization'
 
 interface ErrorBoundaryProps {
   children: ReactNode
@@ -22,7 +23,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error('ErrorBoundary caught an error:', error, errorInfo)
+    safeConsole.error('ErrorBoundary caught an error:', error, errorInfo)
     
     // Call custom error handler if provided
     if (this.props.onError) {

@@ -6,11 +6,12 @@ import CustomerDetail from './pages/CustomerDetail'
 import CustomerForm from './pages/CustomerForm'
 import Dashboard from './pages/Dashboard'
 import NotFound from './pages/NotFound'
+import { safeConsole } from './utils/logSanitization'
 
 function App() {
   const handleError = (error: Error, errorInfo: React.ErrorInfo) => {
-    // Log to console in development
-    console.error('Application Error:', error, errorInfo)
+    // Log to console in development with safe sanitization
+    safeConsole.error('Application Error:', error, errorInfo)
     
     // In production, you would send this to your monitoring service
     // Example: Sentry, LogRocket, etc.
