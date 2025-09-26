@@ -312,6 +312,12 @@ describe('CustomerForm', () => {
 
     it('handles form submission with valid data', async () => {
       const user = userEvent.setup()
+      
+      // Mock API call with a slight delay to allow observation of loading state
+      global.__TEST_MOCKS__.customerApi.createCustomer.mockImplementation(() => 
+        new Promise(resolve => setTimeout(() => resolve({ id: 1 }), 100))
+      )
+      
       renderWithRouter()
       
       // Fill out form with valid data
@@ -329,7 +335,7 @@ describe('CustomerForm', () => {
         expect(screen.getByRole('button', { name: /creating.../i })).toBeDisabled()
       })
       
-      // Verify API call is made
+      // Verify API call is made and wait for completion
       await waitFor(() => {
         expect(global.__TEST_MOCKS__.customerApi.createCustomer).toHaveBeenCalledWith({
           first_name: 'John',
@@ -570,6 +576,12 @@ describe('CustomerForm', () => {
 
     it('allows form submission with Enter key', async () => {
       const user = userEvent.setup()
+      
+      // Mock API call with delay to observe loading state
+      global.__TEST_MOCKS__.customerApi.createCustomer.mockImplementation(() => 
+        new Promise(resolve => setTimeout(() => resolve({ id: 1 }), 100))
+      )
+      
       renderWithRouter()
       
       // Fill out form

@@ -125,6 +125,8 @@ const CustomerForm = () => {
     // First name validation
     if (!formData.first_name.trim()) {
       newErrors.first_name = 'First name is required'
+    } else if (formData.first_name.trim().length < 2) {
+      newErrors.first_name = 'First name must be at least 2 characters'
     } else if (!validateName(formData.first_name)) {
       newErrors.first_name = 'First name contains invalid characters or format'
     }
@@ -132,6 +134,8 @@ const CustomerForm = () => {
     // Last name validation
     if (!formData.last_name.trim()) {
       newErrors.last_name = 'Last name is required'
+    } else if (formData.last_name.trim().length < 2) {
+      newErrors.last_name = 'Last name must be at least 2 characters'
     } else if (!validateName(formData.last_name)) {
       newErrors.last_name = 'Last name contains invalid characters or format'
     }
