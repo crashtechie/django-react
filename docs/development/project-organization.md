@@ -158,27 +158,61 @@
   - **Status**: Todo
   - **Rationale**: Efficiency features - bulk edit, delete, export functionality
 
+### Phase 1.5: New Issues Discovered (Code Review)
+**Priority: MEDIUM-HIGH** - Issues found during code review that need addressing
+
+#### Performance & API Issues
+- **Issue #28** 🐛 Remove Hardcoded setTimeout Delays in Components
+  - **Priority**: Medium
+  - **Status**: Todo
+  - **Rationale**: Artificial delays create poor UX, need real API integration
+
+- **Issue #29** 🔌 Missing API Integration in Customer Pages
+  - **Priority**: High
+  - **Status**: Todo
+  - **Rationale**: Pages show placeholder content instead of real data
+
+- **Issue #30** 🛡️ App Missing Error Boundary Wrapper
+  - **Priority**: High
+  - **Status**: Todo
+  - **Rationale**: Unhandled errors crash entire application
+  - **Dependencies**: Requires Issue #2 completion
+
+- **Issue #31** 📊 Dashboard Shows Static "Loading..." Text
+  - **Priority**: Medium
+  - **Status**: Todo
+  - **Rationale**: Dashboard never loads real statistics data
+
 ### Notes
 All issues are now organized into their appropriate phases based on priority and dependencies. Issue #22 serves as a tracking issue for CI/CD improvements across multiple phases.
+
+**New Issues Added**: #28-31 discovered during code review scan of uncommitted changes.
 
 ---
 
 ## GitHub Project Sync
 
 **Project URL**: https://github.com/users/crashtechie/projects/6
-**Total Items**: 27 issues
+**Total Items**: 31 issues
 **Last Synced**: 2025-09-25
 
 ### Current Project Status
 - **Done**: Issues #5, #13, #15, #16, #20, #23, #24, #25 (8 completed)
-- **Todo**: Issues #1-4, #6-12, #14, #17-19, #21-22, #26-27 (19 remaining)
+- **Todo**: Issues #1-4, #6-12, #14, #17-19, #21-22, #26-31 (23 remaining)
 - **In Progress**: None currently
 
-### Recent Additions (Test Migration Issues)
+### Recent Additions
+**Test Migration Issues:**
 - **Issue #24**: Fix Jest Configuration Property Name
 - **Issue #25**: Install Missing django_filters Dependency  
 - **Issue #26**: Verify Test Path Resolution After Migration
 - **Issue #27**: Update CI/CD Pipelines for New Test Structure
+
+**Code Review Issues (2025-01-27):**
+- **Issue #28**: Remove Hardcoded setTimeout Delays
+- **Issue #29**: Missing API Integration in Customer Pages
+- **Issue #30**: App Missing Error Boundary Wrapper
+- **Issue #31**: Dashboard Shows Static Loading Text
 
 ### Status Alignment
 ✅ Issues #5, #13, #15, #16, #20, #23, #24, #25 marked as Done in both docs and project
