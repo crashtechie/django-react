@@ -44,23 +44,63 @@ This analysis reviews the frontend implementation of the Customer Management Sys
 
 ---
 
-## Cost Analysis
+## Cost Analysis (Enterprise Estimate, 5-Year Horizon)
 
 ### 1. **Development Costs**
-- **Initial Setup**: Low, due to modern toolchain and templates.
-- **Ongoing Maintenance**: Moderate; regular dependency updates, test maintenance, and documentation.
-- **Feature Addition**: Rapid prototyping with React/Vite, but custom business logic may increase cost over time.
+- **Frontend Developers (2 FTE)**
+  - Annual cost: $140,000 × 2 = $280,000
+  - 5-year total: $1,400,000
+- **Feature Addition & Maintenance**
+  - Included in developer salaries.
 
 ### 2. **Testing Costs**
-- **Automated Testing**: Jest and React Testing Library reduce manual QA, but expanding test coverage and maintaining mocks require developer time.
+- **Automated Testing Maintenance**
+  - QA resource (0.25 FTE): $120,000 × 0.25 = $30,000/year
+  - 5-year total: $150,000
+- **Test Infrastructure (CI/CD, coverage tools)**
+  - Included in cloud/tooling below.
 
 ### 3. **Operational Costs**
-- **Hosting**: Static frontend can be served via CDN or Docker/Nginx, keeping hosting costs low.
-- **CI/CD**: Costs scale with build frequency and complexity; Vite is fast, but integration testing may add time.
+- **Cloud Hosting & CDN (frontend only)**
+  - Annual: $4,000 (static hosting, moderate usage, redundancy)
+  - 5-year total: $20,000
+- **CI/CD Pipeline (build, test, deploy)**
+  - Annual: $4,000 (GitHub Actions, artifact storage, etc.)
+  - 5-year total: $20,000
+- **Monitoring/Logging (Sentry, LogRocket, etc.)**
+  - Annual: $2,000
+  - 5-year total: $10,000
+- **DevOps/SRE (0.5 FTE)**
+  - Annual: $160,000 × 0.5 = $80,000
+  - 5-year total: $400,000
 
 ### 4. **Security Costs**
-- **Vulnerability Management**: Regular scanning and patching, plus periodic penetration testing, add to cost.
-- **Incident Response**: Potential downtime and developer hours if a security issue occurs.
+- **Dependency Scanning and Patching**
+  - Tooling: $2,000/year
+  - 5-year total: $10,000
+- **Annual Penetration Testing**
+  - $2,000/year
+  - 5-year total: $10,000
+- **Incident Response (Contingency)**
+  - Estimated: $10,000 over 5 years
+
+---
+
+### **5-Year Total Cost Estimate**
+
+| Category            | 5-Year Cost (USD) |
+|---------------------|------------------|
+| Development         | $1,400,000       |
+| QA/Testing          | $150,000         |
+| DevOps/SRE          | $400,000         |
+| Hosting/CI/CD       | $40,000          |
+| Monitoring/Logging  | $10,000          |
+| Security Tools      | $10,000          |
+| Penetration Testing | $10,000          |
+| Incident Response   | $10,000          |
+| **Total**           | **$2,030,000**   |
+
+**Average annual cost:** ~$406,000
 
 ---
 
