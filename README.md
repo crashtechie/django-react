@@ -193,6 +193,10 @@ This project uses [Semantic Versioning](https://semver.org/) with automated rele
 
 See [VERSIONING.md](./docs/development/versioning.md) for detailed information.
 
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 ---
 
 **Built with modern web technologies and best practices for security, performance, and scalability.**
