@@ -1,5 +1,9 @@
 # Issue #33: Log Injection Vulnerabilities
 
+**Type**: Bug  
+**Category**: Security  
+**Severity**: Critical
+
 ## Security Issue Description
 Log injection vulnerabilities detected where unsanitized user input is written to logs, allowing attackers to manipulate log entries
 

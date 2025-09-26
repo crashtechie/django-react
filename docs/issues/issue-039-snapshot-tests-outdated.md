@@ -1,5 +1,9 @@
 # Issue #39: Snapshot Tests Outdated and Failing
 
+**Type**: Bug  
+**Category**: Testing  
+**Severity**: Medium
+
 ## Bug Description
 Snapshot tests are failing with 1 failed and 6 obsolete snapshots, indicating UI changes that haven't been properly updated in tests
 

@@ -1,5 +1,9 @@
 # Issue #36: Toast Notification Mocking Failures in Tests
 
+**Type**: Bug  
+**Category**: Testing  
+**Severity**: High
+
 ## Bug Description
 Frontend tests are failing due to `toast.error` function not being properly mocked, causing TypeError in CustomerForm integration tests
 

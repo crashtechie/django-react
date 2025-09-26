@@ -1,5 +1,9 @@
 # Issue #35: Error Handling Security Improvements
 
+**Type**: Bug  
+**Category**: Security  
+**Severity**: High
+
 ## Security Issue Description
 Inadequate error handling detected that may expose sensitive information or fail silently
 

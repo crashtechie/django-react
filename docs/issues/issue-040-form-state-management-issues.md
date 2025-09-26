@@ -1,5 +1,9 @@
 # Issue #40: Form State Management Issues in CustomerForm
 
+**Type**: Bug  
+**Category**: Frontend  
+**Severity**: High
+
 ## Bug Description
 CustomerForm tests are failing due to form state management issues, including button disable states and form clearing after submission
 

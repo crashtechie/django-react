@@ -1,5 +1,9 @@
 # Issue #29: Missing API Integration in Customer Pages
 
+**Type**: Enhancement  
+**Category**: Frontend  
+**Severity**: High
+
 ## Feature Description
 CustomerList and CustomerDetail pages need proper API integration to fetch real customer data
 

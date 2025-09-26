@@ -1,5 +1,9 @@
 # Issue #32: Cross-Site Scripting (XSS) Vulnerabilities
 
+**Type**: Bug  
+**Category**: Security  
+**Severity**: Critical
+
 ## Security Issue Description
 Critical XSS vulnerabilities detected in application code that could allow malicious script injection
 

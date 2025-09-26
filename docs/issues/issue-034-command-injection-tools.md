@@ -1,5 +1,9 @@
 # Issue #34: OS Command Injection in Development Tools
 
+**Type**: Bug  
+**Category**: Security  
+**Severity**: High
+
 ## Security Issue Description
 OS command injection vulnerabilities in development tools using shell=True without proper input sanitization
 

@@ -1,5 +1,9 @@
 # Issue #38: Backend Tests Require PostgreSQL Database Connection
 
+**Type**: Bug  
+**Category**: Infrastructure  
+**Severity**: High
+
 ## Bug Description
 Backend tests cannot run without a PostgreSQL database connection, preventing local test execution and CI/CD validation
 

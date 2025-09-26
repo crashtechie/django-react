@@ -1,5 +1,9 @@
 # Issue #37: Navigation Mock Expectations Not Met in Tests
 
+**Type**: Bug  
+**Category**: Testing  
+**Severity**: High
+
 ## Bug Description
 Integration tests are failing because navigation mock functions are not being called as expected, indicating issues with form submission flows
 
