@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach } from '@jest/globals'
 import { render, screen, waitFor, cleanup } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter, Routes, Route } from 'react-router-dom'
-import CustomerForm from '../pages/CustomerForm'
+import CustomerForm from '@/pages/CustomerForm'
 import '@testing-library/jest-dom'
 
 // Access global test mocks

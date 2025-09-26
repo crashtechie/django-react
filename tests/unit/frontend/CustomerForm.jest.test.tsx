@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
-import CustomerForm from '../pages/CustomerForm'
-import { resetAllMocks } from '../test/helpers'
+import CustomerForm from '@/pages/CustomerForm'
+import { resetAllMocks } from '@/test/helpers'
 
 describe('CustomerForm - Jest Tests', () => {
   beforeEach(() => {

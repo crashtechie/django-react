@@ -1,32 +1,32 @@
 import { describe, it, expect, beforeEach } from '@jest/globals'
 import { render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
-import App from '../App'
+import App from '@/App'
 import '@testing-library/jest-dom'
 
 // Mock the pages since we're testing App routing
-jest.mock('../pages/Dashboard', () => ({
+jest.mock('@/pages/Dashboard', () => ({
   default: () => <div data-testid="dashboard">Dashboard Page</div>
 }))
 
-jest.mock('../pages/CustomerList', () => ({
+jest.mock('@/pages/CustomerList', () => ({
   default: () => <div data-testid="customer-list">Customer List Page</div>
 }))
 
-jest.mock('../pages/CustomerDetail', () => ({
+jest.mock('@/pages/CustomerDetail', () => ({
   default: () => <div data-testid="customer-detail">Customer Detail Page</div>
 }))
 
-jest.mock('../pages/CustomerForm', () => ({
+jest.mock('@/pages/CustomerForm', () => ({
   default: () => <div data-testid="customer-form">Customer Form Page</div>
 }))
 
-jest.mock('../pages/NotFound', () => ({
+jest.mock('@/pages/NotFound', () => ({
   default: () => <div data-testid="not-found">Not Found Page</div>
 }))
 
 // Mock the Layout component
-jest.mock('../components/Layout', () => ({
+jest.mock('@/components/Layout', () => ({
   default: ({ children }: { children: React.ReactNode }) => (
     <div data-testid="layout">
       <nav data-testid="navigation">

@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach } from '@jest/globals'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
-import CustomerForm from '../pages/CustomerForm'
+import CustomerForm from '@/pages/CustomerForm'
 import '@testing-library/jest-dom'
 
 // Mock useNavigate

@@ -1,9 +1,9 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
-import App from '../../../frontend/src/App'
+import App from '@/App'
 
 // Mock a component that can throw errors
-jest.mock('../../../frontend/src/pages/Dashboard', () => {
+jest.mock('@/pages/Dashboard', () => {
   return function MockDashboard() {
     const shouldThrow = new URLSearchParams(window.location.search).get('throwError')
     if (shouldThrow === 'true') {

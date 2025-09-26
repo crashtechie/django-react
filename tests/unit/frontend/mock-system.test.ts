@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from '@jest/globals'
-import { getMocks, resetAllMocks, setEditMode, setCreateMode } from '../test/helpers'
+import { getMocks, resetAllMocks, setEditMode, setCreateMode } from '@/test/helpers'
 
 describe('Mock System', () => {
   beforeEach(() => {

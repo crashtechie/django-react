@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from '@jest/globals'
 import { render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
-import CustomerList from '../pages/CustomerList'
+import CustomerList from '@/pages/CustomerList'
 import '@testing-library/jest-dom'
 
 const renderWithRouter = () => {

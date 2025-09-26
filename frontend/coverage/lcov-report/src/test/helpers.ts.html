@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/22</span>
+                <span class='fraction'>22/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/17</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -111,38 +111,38 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">56x</span>
+<span class="cline-any cline-yes">56x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Test helpers for Jest
 interface TestMocks {
   navigate: jest.Mock;
@@ -151,38 +151,38 @@ interface TestMocks {
   toast: Record&lt;string, jest.Mock&gt;;
 }
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >getMocks = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>): TestMocks =</span>&gt; (<span class="cstat-no" title="statement not covered" >global as unknown as { __TEST_MOCKS__: TestMocks }).__TEST_MOCKS__;</span></span>
+export const getMocks = (): TestMocks =&gt; (global as unknown as { __TEST_MOCKS__: TestMocks }).__TEST_MOCKS__;
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >resetAllMocks = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>) =</span>&gt; {</span>
-  const mocks = <span class="cstat-no" title="statement not covered" >getMocks();</span>
+export const resetAllMocks = () =&gt; {
+  const mocks = getMocks();
   
   // Reset router mocks
-<span class="cstat-no" title="statement not covered" >  mocks.navigate.mockClear();</span>
-<span class="cstat-no" title="statement not covered" >  mocks.useParams.mockReturnValue({ id: undefined });</span>
+  mocks.navigate.mockClear();
+  mocks.useParams.mockReturnValue({ id: undefined });
   
   // Reset API mocks
-<span class="cstat-no" title="statement not covered" >  Object.values(mocks.customerApi).forEach(<span class="fstat-no" title="function not covered" >(m</span>ockFn: jest.Mock) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (typeof mockFn.mockClear === 'function') {</span>
-<span class="cstat-no" title="statement not covered" >      mockFn.mockClear();</span>
+  Object.values(mocks.customerApi).forEach((mockFn: jest.Mock) =&gt; {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof mockFn.mockClear === 'function') {
+      mockFn.mockClear();
     }
   });
   
   // Reset toast mocks
-<span class="cstat-no" title="statement not covered" >  Object.values(mocks.toast).forEach(<span class="fstat-no" title="function not covered" >(m</span>ockFn: jest.Mock) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (typeof mockFn.mockClear === 'function') {</span>
-<span class="cstat-no" title="statement not covered" >      mockFn.mockClear();</span>
+  Object.values(mocks.toast).forEach((mockFn: jest.Mock) =&gt; {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof mockFn.mockClear === 'function') {
+      mockFn.mockClear();
     }
   });
 };
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >setEditMode = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>i</span>d: string) =&gt; {</span>
-  const mocks = <span class="cstat-no" title="statement not covered" >getMocks();</span>
-<span class="cstat-no" title="statement not covered" >  mocks.useParams.mockReturnValue({ id });</span>
+export const setEditMode = (id: string) =&gt; {
+  const mocks = getMocks();
+  mocks.useParams.mockReturnValue({ id });
 };
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >setCreateMode = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>) =</span>&gt; {</span>
-  const mocks = <span class="cstat-no" title="statement not covered" >getMocks();</span>
-<span class="cstat-no" title="statement not covered" >  mocks.useParams.mockReturnValue({ id: undefined });</span>
+export const setCreateMode = () =&gt; {
+  const mocks = getMocks();
+  mocks.useParams.mockReturnValue({ id: undefined });
 };</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -190,7 +190,7 @@ export const <span class="cstat-no" title="statement not covered" >setCreateMode
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-09-26T01:56:15.164Z
+                at 2025-09-26T02:11:55.275Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
