@@ -1,0 +1,202 @@
+<mxfile host="app.diagrams.net" modified="2025-01-27T00:00:00.000Z" agent="5.0" etag="drawio" version="22.1.16" type="device">
+  <diagram name="Customer CRUD Flow" id="crud-flow">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Actors -->
+        <mxCell id="user" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#e1f5fe;" vertex="1" parent="1">
+          <mxGeometry x="50" y="100" width="30" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Components -->
+        <mxCell id="react-form" value="React Form" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#7b1fa2;" vertex="1" parent="1">
+          <mxGeometry x="150" y="110" width="100" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="validation" value="Validation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="300" y="110" width="100" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="api-service" value="API Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e8;strokeColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="450" y="110" width="100" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="django-api" value="Django API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffebee;strokeColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="600" y="110" width="100" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="serializer" value="Serializer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f8e9;strokeColor=#33691e;" vertex="1" parent="1">
+          <mxGeometry x="750" y="110" width="100" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="model" value="Model" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#880e4f;" vertex="1" parent="1">
+          <mxGeometry x="900" y="110" width="100" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="database" value="PostgreSQL" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e0f2f1;strokeColor=#00695c;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="90" width="80" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Create Customer Flow -->
+        <mxCell id="create-title" value="Create Customer Flow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="50" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Flow Steps -->
+        <mxCell id="step1" value="1. Fill form" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" edge="1" parent="1" source="user" target="react-form">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step2" value="2. Validate" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" edge="1" parent="1" source="react-form" target="validation">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step3" value="3. POST data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" edge="1" parent="1" source="validation" target="api-service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step4" value="4. API call" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" edge="1" parent="1" source="api-service" target="django-api">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step5" value="5. Serialize" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" edge="1" parent="1" source="django-api" target="serializer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step6" value="6. Create model" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" edge="1" parent="1" source="serializer" target="model">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="step7" value="7. INSERT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" edge="1" parent="1" source="model" target="database">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Response Flow -->
+        <mxCell id="resp1" value="Customer ID" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;dashed=1;dashPattern=5 5;" edge="1" parent="1" source="database" target="model">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="resp2" value="Model instance" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;dashed=1;dashPattern=5 5;" edge="1" parent="1" source="model" target="serializer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="resp3" value="Serialized data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;dashed=1;dashPattern=5 5;" edge="1" parent="1" source="serializer" target="django-api">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="resp4" value="201 Created" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;dashed=1;dashPattern=5 5;" edge="1" parent="1" source="django-api" target="api-service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="resp5" value="Success response" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;dashed=1;dashPattern=5 5;" edge="1" parent="1" source="api-service" target="react-form">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="resp6" value="Display customer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;dashed=1;dashPattern=5 5;" edge="1" parent="1" source="react-form" target="user">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+  
+  <diagram name="Authentication Flow" id="auth-flow">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Authentication Flow Title -->
+        <mxCell id="auth-title" value="Authentication Flow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="50" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Actors and Components -->
+        <mxCell id="auth-user" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#e1f5fe;" vertex="1" parent="1">
+          <mxGeometry x="50" y="120" width="30" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="login-form" value="Login Form" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#7b1fa2;" vertex="1" parent="1">
+          <mxGeometry x="150" y="130" width="100" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="auth-service" value="Auth Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e8;strokeColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="300" y="130" width="100" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="django-auth" value="Django API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffebee;strokeColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="450" y="130" width="100" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="auth-backend" value="Django Auth" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="600" y="130" width="100" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="user-db" value="User Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e0f2f1;strokeColor=#00695c;" vertex="1" parent="1">
+          <mxGeometry x="750" y="110" width="80" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="session-store" value="Session Store" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fce4ec;strokeColor=#880e4f;" vertex="1" parent="1">
+          <mxGeometry x="600" y="250" width="80" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="react-app" value="React App" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f8e9;strokeColor=#33691e;" vertex="1" parent="1">
+          <mxGeometry x="150" y="270" width="100" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Login Flow -->
+        <mxCell id="auth-step1" value="1. Enter credentials" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="auth-user" target="login-form">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="auth-step2" value="2. POST login" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="login-form" target="auth-service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="auth-step3" value="3. Authenticate" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="auth-service" target="django-auth">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="auth-step4" value="4. Verify user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="django-auth" target="auth-backend">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="auth-step5" value="5. Check credentials" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="auth-backend" target="user-db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="auth-step6" value="6. Create session" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="auth-backend" target="session-store">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Response Flow -->
+        <mxCell id="auth-resp1" value="User data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=5 5;" edge="1" parent="1" source="user-db" target="auth-backend">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="auth-resp2" value="Session ID" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=5 5;" edge="1" parent="1" source="session-store" target="auth-backend">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="auth-resp3" value="Auth token" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=5 5;" edge="1" parent="1" source="django-auth" target="auth-service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="auth-resp4" value="Login success" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=5 5;" edge="1" parent="1" source="auth-service" target="login-form">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="auth-resp5" value="Redirect to dashboard" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=5 5;" edge="1" parent="1" source="login-form" target="react-app">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="auth-resp6" value="Show authenticated app" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=5 5;" edge="1" parent="1" source="react-app" target="auth-user">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
