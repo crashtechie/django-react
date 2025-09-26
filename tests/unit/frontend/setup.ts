@@ -83,9 +83,7 @@ const mockToast = {
   dismiss: jest.fn()
 };
 
-jest.mock('react-hot-toast', () => ({
-  default: mockToast
-}));
+jest.mock('react-hot-toast', () => mockToast);
 
 // Export mocks for test access
 (global as unknown as { __TEST_MOCKS__: unknown }).__TEST_MOCKS__ = {
