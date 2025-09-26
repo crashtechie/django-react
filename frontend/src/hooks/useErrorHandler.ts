@@ -1,4 +1,5 @@
 import { useCallback } from 'react'
+import { safeConsole, sanitizeForLogging } from '../utils/logSanitization'
 
 interface ErrorHandlerOptions {
   logToConsole?: boolean
@@ -10,13 +11,13 @@ export const useErrorHandler = (options: ErrorHandlerOptions = {}) => {
 
   const handleError = useCallback((error: Error, context?: string) => {
     if (logToConsole) {
-      console.error(`Error${context ? ` in ${context}` : ''}:`, error)
+      safeConsole.error(`Error${context ? ` in ${sanitizeForLogging(context)}` : ''}:`, error)
     }
 
     if (showToast) {
       // In a real app, you'd use your toast library here
-      // For now, we'll just log it
-      console.warn('Toast notification:', error.message)
+      // For now, we'll just log it with sanitization
+      safeConsole.warn('Toast notification:', sanitizeForLogging(error.message))
     }
 
     // In production, send to monitoring service

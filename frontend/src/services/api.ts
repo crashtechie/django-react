@@ -1,5 +1,6 @@
 import axios, { AxiosResponse, AxiosError, InternalAxiosRequestConfig } from 'axios'
 import { Customer, CustomerFormData, CustomerStats, PaginatedResponse } from '../types'
+import { safeConsole, sanitizeForLogging } from '../utils/logSanitization'
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || '/api'
 
@@ -14,9 +15,9 @@ const api = axios.create({
 // Request interceptor
 api.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    // Only log in development
+    // Only log in development with safe sanitization
     if (import.meta.env.DEV) {
-      console.log(`API Request: ${config.method?.toUpperCase()} ${config.url}`)
+      safeConsole.log(`API Request: ${sanitizeForLogging(config.method?.toUpperCase())} ${sanitizeForLogging(config.url)}`)
     }
     return config
   },
@@ -31,7 +32,7 @@ api.interceptors.response.use(
     return response
   },
   (error: AxiosError) => {
-    console.error('API Error:', error.response?.data || error.message)
+    safeConsole.error('API Error:', error.response?.data || error.message)
     return Promise.reject(error)
   }
 )
