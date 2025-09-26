@@ -38,30 +38,36 @@
 
 ---
 
-## 🎯 Sprint 2: API Integration & Core Features (Current)
+## 🎯 Sprint 2: Security & Test Infrastructure (Current - URGENT)
 **Duration**: 2 weeks  
 **Start Date**: October 6, 2025
 **End Date**: October 19, 2025
-**Goal**: Connect frontend to backend APIs and implement core functionality
+**Goal**: 🚨 **CRITICAL SECURITY FIXES** + 🔥 **TEST INFRASTRUCTURE FIXES**
 
-### Sprint Backlog
+### Sprint Backlog (Reprioritized for Critical Issues)
 | Issue | Story Points | Priority | Status |
 |-------|-------------|----------|--------|
-| #29 - Missing API Integration | 13 | High | 🔄 Next |
-| #28 - Remove Hardcoded Timeouts | 5 | Medium | Todo |
-| #31 - Dashboard Static Data | 8 | Medium | Todo |
-| #21 - Loading States | 5 | High | Todo |
-| #6 - Mobile Customer Cards | 8 | Medium | Todo |
+| #32 - XSS Vulnerabilities | 8 | 🚨 Critical | 🚨 Urgent |
+| #33 - Log Injection | 5 | 🚨 Critical | 🚨 Urgent |
+| #36 - Toast Mocking Failures | 5 | 🔥 High | Todo |
+| #38 - Backend Database Connection | 8 | 🔥 High | Todo |
+| #40 - Form State Management | 5 | 🔥 High | Todo |
+| #37 - Navigation Mock Failures | 3 | 🔥 High | Todo |
+| #35 - Error Handling Security | 5 | High | Todo |
 
 **Total Story Points**: 39  
 **Team Capacity**: 40 points
+**🚨 Security Priority**: Issues #32-33 must be completed first
+**🔥 Test Priority**: Issues #36-40 block development workflow
 
-### Sprint 2 Goals
-- Connect CustomerList to real API endpoints
-- Connect CustomerDetail to real API endpoints  
-- Remove artificial delays and implement proper loading states
-- Add mobile-responsive customer cards
-- Implement dashboard with real statistics
+### Sprint 2 Goals (Security & Test Infrastructure First)
+- 🚨 **CRITICAL**: Fix XSS vulnerabilities in CustomerForm and Django models
+- 🚨 **CRITICAL**: Fix log injection vulnerabilities in error handling
+- 🔥 **HIGH**: Fix toast mocking failures blocking frontend tests
+- 🔥 **HIGH**: Enable backend test execution with database setup
+- 🔥 **HIGH**: Fix form state management issues in CustomerForm
+- 🔥 **HIGH**: Resolve navigation mock failures in integration tests
+- ⚠️ Fix error handling security issues
 
 ---
 
@@ -156,12 +162,21 @@ Sep 22 ─────── Oct 5 ─────── Oct 19 ─────�
 
 ### Current Issue Distribution
 
+#### 🚨 Critical Security (Sprint 2 - URGENT)
+- **Issue #32**: XSS Vulnerabilities (8 pts) - 🚨 CRITICAL
+- **Issue #33**: Log Injection (5 pts) - 🚨 CRITICAL
+- **Issue #35**: Error Handling Security (5 pts) - HIGH
+- **Issue #34**: Command Injection Tools (3 pts) - HIGH
+
+#### 🔥 Test Infrastructure (Sprint 2 - URGENT)
+- **Issue #36**: Toast Mocking Failures (5 pts) - HIGH
+- **Issue #37**: Navigation Mock Failures (3 pts) - HIGH
+- **Issue #38**: Backend Database Connection (8 pts) - HIGH
+- **Issue #40**: Form State Management (5 pts) - HIGH
+
 #### 🔄 In Progress (Sprint 2)
 - **Issue #29**: Missing API Integration (13 pts) - HIGH
 - **Issue #28**: Remove Hardcoded Timeouts (5 pts) - MEDIUM
-- **Issue #31**: Dashboard Static Data (8 pts) - MEDIUM
-- **Issue #21**: Loading States (5 pts) - HIGH
-- **Issue #6**: Mobile Customer Cards (8 pts) - MEDIUM
 
 #### 📋 Upcoming (Sprint 3)
 - **Issue #17**: Snapshot Tests (3 pts) - MEDIUM
@@ -186,12 +201,14 @@ Sep 22 ─────── Oct 5 ─────── Oct 19 ─────�
 - **Average Velocity**: 40 story points per sprint
 
 ### Key Metrics
-- **Issues Resolved**: 22/31 total (71% complete)
+- **Issues Resolved**: 14/40 total (35% complete)
+- **Critical Security Issues**: 4 new issues identified (🚨 URGENT)
+- **Test Infrastructure Issues**: 5 new issues identified (🔥 URGENT)
 - **Story Points Completed**: 81 points
-- **Test Coverage**: 92 tests passing, 85%+ coverage
-- **CI/CD Status**: All pipelines passing
+- **Test Coverage**: 68% tests passing (43 failed, 93 passed)
+- **CI/CD Status**: Frontend tests failing, backend needs database
 - **Phase 1 Progress**: 14/14 completed (100%)
-- **Phase 2 Progress**: 0/6 completed (0%)
+- **Phase 2 Progress**: 0/15 completed (0%) - Security & test priority
 
 ### Sprint Burndown
 - **Sprint 1 (Sep 22 - Oct 5)**: 14 critical infrastructure issues completed
