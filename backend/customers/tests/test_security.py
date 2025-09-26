@@ -2,6 +2,7 @@
 Security tests for the Customer model to prevent XSS vulnerabilities.
 """
 from django.test import TestCase
+from django.core.exceptions import ValidationError
 from customers.models import Customer
 
 
@@ -16,6 +17,55 @@ class CustomerModelSecurityTest(TestCase):
             "email": "john.doe@example.com",
             "phone": "555-1234"
         }
+
+    def test_clean_method_rejects_xss_in_first_name(self):
+        """Test that clean() method rejects XSS in first name."""
+        xss_first_name = "<script>alert('XSS')</script>"
+        customer_data = self.safe_customer_data.copy()
+        customer_data["first_name"] = xss_first_name
+        
+        customer = Customer(**customer_data)
+        with self.assertRaises(ValidationError) as context:
+            customer.clean()
+            
+        self.assertIn('first_name', context.exception.message_dict)
+        self.assertIn('invalid characters', context.exception.message_dict['first_name'][0])
+
+    def test_clean_method_rejects_xss_in_last_name(self):
+        """Test that clean() method rejects XSS in last name."""
+        xss_last_name = '<img src="x" onerror="alert(1)">'
+        customer_data = self.safe_customer_data.copy()
+        customer_data["last_name"] = xss_last_name
+        
+        customer = Customer(**customer_data)
+        with self.assertRaises(ValidationError) as context:
+            customer.clean()
+            
+        self.assertIn('last_name', context.exception.message_dict)
+
+    def test_clean_method_rejects_xss_in_email(self):
+        """Test that clean() method rejects XSS in email."""
+        xss_email = 'test@example.com<svg onload="alert(\'XSS\')">'
+        customer_data = self.safe_customer_data.copy()
+        customer_data["email"] = xss_email
+        
+        customer = Customer(**customer_data)
+        with self.assertRaises(ValidationError) as context:
+            customer.clean()
+            
+        self.assertIn('email', context.exception.message_dict)
+
+    def test_clean_method_rejects_xss_in_phone(self):
+        """Test that clean() method rejects XSS in phone."""
+        xss_phone = '555-1234<script>alert(1)</script>'
+        customer_data = self.safe_customer_data.copy()
+        customer_data["phone"] = xss_phone
+        
+        customer = Customer(**customer_data)
+        with self.assertRaises(ValidationError) as context:
+            customer.clean()
+            
+        self.assertIn('phone', context.exception.message_dict)
 
     def test_str_method_sanitizes_xss_in_first_name(self):
         """Test that __str__ method sanitizes XSS in first name."""

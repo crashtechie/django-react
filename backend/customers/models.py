@@ -49,16 +49,54 @@ class Customer(models.Model):
         return escape(f"{self.first_name} {self.last_name}")
 
     def clean(self):
-        """Custom validation for the model."""
-        # Capitalize names
+        """Custom validation for the model with security checks."""
+        import re
+        from django.core.exceptions import ValidationError
+        
+        # Security patterns to detect potential XSS/injection attempts
+        dangerous_patterns = re.compile(
+            r'<script|<iframe|<object|<embed|javascript:|data:|on\w+='
+            r'|<\s*\/?\s*(script|iframe|object|embed|svg|img)',
+            re.IGNORECASE
+        )
+        
+        # Validate and clean first name
         if self.first_name:
-            self.first_name = self.first_name.strip().title()
+            self.first_name = self.first_name.strip()
+            if dangerous_patterns.search(self.first_name):
+                raise ValidationError({'first_name': 'First name contains invalid characters.'})
+            if len(self.first_name) > 50:
+                raise ValidationError({'first_name': 'First name is too long.'})
+            if not re.match(r'^[a-zA-Z\s\-\'\.]+$', self.first_name):
+                raise ValidationError({'first_name': 'First name contains invalid characters.'})
+            self.first_name = self.first_name.title()
+            
+        # Validate and clean last name
         if self.last_name:
-            self.last_name = self.last_name.strip().title()
+            self.last_name = self.last_name.strip()
+            if dangerous_patterns.search(self.last_name):
+                raise ValidationError({'last_name': 'Last name contains invalid characters.'})
+            if len(self.last_name) > 50:
+                raise ValidationError({'last_name': 'Last name is too long.'})
+            if not re.match(r'^[a-zA-Z\s\-\'\.]+$', self.last_name):
+                raise ValidationError({'last_name': 'Last name contains invalid characters.'})
+            self.last_name = self.last_name.title()
 
-        # Normalize email
+        # Validate and clean email
         if self.email:
             self.email = self.email.lower().strip()
+            if dangerous_patterns.search(self.email):
+                raise ValidationError({'email': 'Email contains invalid characters.'})
+            if len(self.email) > 254:  # RFC5321 limit
+                raise ValidationError({'email': 'Email is too long.'})
+                
+        # Validate phone
+        if self.phone:
+            self.phone = self.phone.strip()
+            if dangerous_patterns.search(self.phone):
+                raise ValidationError({'phone': 'Phone number contains invalid characters.'})
+            if len(self.phone) > 15:
+                raise ValidationError({'phone': 'Phone number is too long.'})
 
     def save(self, *args, **kwargs):
         """Override save to call clean method."""

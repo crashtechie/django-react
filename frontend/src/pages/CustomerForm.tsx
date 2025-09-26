@@ -88,13 +88,35 @@ const CustomerForm = () => {
 
   // Validation functions
   const validateEmail = (email: string): boolean => {
+    // Enhanced email validation with additional security checks
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    return emailRegex.test(email)
+    const dangerousPatterns = /<script|<iframe|<object|<embed|javascript:|data:/i
+    
+    return emailRegex.test(email) && 
+           !dangerousPatterns.test(email) &&
+           email.length <= 254 // RFC5321 limit
   }
 
   const validatePhone = (phone: string): boolean => {
+    // Enhanced phone validation
     const phoneRegex = /^[\d\s\-()\\+]+$/
-    return phoneRegex.test(phone) && phone.replace(/\D/g, '').length >= 10
+    const dangerousPatterns = /<script|<iframe|<object|<embed|javascript:|data:/i
+    
+    return phoneRegex.test(phone) && 
+           phone.replace(/\D/g, '').length >= 10 && 
+           phone.length <= 15 && // Reasonable phone number limit
+           !dangerousPatterns.test(phone)
+  }
+
+  const validateName = (name: string): boolean => {
+    // Name validation with XSS prevention
+    const nameRegex = /^[a-zA-Z\s\-'\.]+$/
+    const dangerousPatterns = /<script|<iframe|<object|<embed|javascript:|data:|on\w+=/i
+    
+    return name.trim().length >= 2 && 
+           name.length <= 50 && // Reasonable name limit
+           nameRegex.test(name) &&
+           !dangerousPatterns.test(name)
   }
 
   const validateForm = (): boolean => {
@@ -103,15 +125,15 @@ const CustomerForm = () => {
     // First name validation
     if (!formData.first_name.trim()) {
       newErrors.first_name = 'First name is required'
-    } else if (formData.first_name.length < 2) {
-      newErrors.first_name = 'First name must be at least 2 characters'
+    } else if (!validateName(formData.first_name)) {
+      newErrors.first_name = 'First name contains invalid characters or format'
     }
 
     // Last name validation
     if (!formData.last_name.trim()) {
       newErrors.last_name = 'Last name is required'
-    } else if (formData.last_name.length < 2) {
-      newErrors.last_name = 'Last name must be at least 2 characters'
+    } else if (!validateName(formData.last_name)) {
+      newErrors.last_name = 'Last name contains invalid characters or format'
     }
 
     // Email validation

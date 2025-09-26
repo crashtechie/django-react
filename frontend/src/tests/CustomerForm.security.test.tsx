@@ -26,6 +26,99 @@ describe('CustomerForm XSS Security Tests', () => {
     mockedToast.error = jest.fn()
   })
 
+  describe('Input Validation Security', () => {
+    it('should reject XSS attempts in first name', async () => {
+      renderCustomerForm()
+      
+      const user = userEvent.setup()
+      const xssPayload = '<script>alert("XSS")</script>'
+      
+      await user.type(screen.getByLabelText(/first name/i), xssPayload)
+      await user.type(screen.getByLabelText(/last name/i), 'Doe')
+      await user.type(screen.getByLabelText(/email address/i), 'test@example.com')
+      await user.type(screen.getByLabelText(/phone number/i), '1234567890')
+      
+      await user.click(screen.getByRole('button', { name: /create customer/i }))
+
+      await waitFor(() => {
+        expect(screen.getByText('First name contains invalid characters or format')).toBeInTheDocument()
+      })
+    })
+
+    it('should reject XSS attempts in last name', async () => {
+      renderCustomerForm()
+      
+      const user = userEvent.setup()
+      const xssPayload = '<img src="x" onerror="alert(1)">'
+      
+      await user.type(screen.getByLabelText(/first name/i), 'John')
+      await user.type(screen.getByLabelText(/last name/i), xssPayload)
+      await user.type(screen.getByLabelText(/email address/i), 'test@example.com')
+      await user.type(screen.getByLabelText(/phone number/i), '1234567890')
+      
+      await user.click(screen.getByRole('button', { name: /create customer/i }))
+
+      await waitFor(() => {
+        expect(screen.getByText('Last name contains invalid characters or format')).toBeInTheDocument()
+      })
+    })
+
+    it('should reject malicious javascript URLs in email', async () => {
+      renderCustomerForm()
+      
+      const user = userEvent.setup()
+      const maliciousEmail = 'test@javascript:alert(1).com'
+      
+      await user.type(screen.getByLabelText(/first name/i), 'John')
+      await user.type(screen.getByLabelText(/last name/i), 'Doe')
+      await user.type(screen.getByLabelText(/email address/i), maliciousEmail)
+      await user.type(screen.getByLabelText(/phone number/i), '1234567890')
+      
+      await user.click(screen.getByRole('button', { name: /create customer/i }))
+
+      await waitFor(() => {
+        expect(screen.getByText('Please enter a valid email address')).toBeInTheDocument()
+      })
+    })
+
+    it('should reject script tags in phone numbers', async () => {
+      renderCustomerForm()
+      
+      const user = userEvent.setup()
+      const maliciousPhone = '555<script>alert(1)</script>1234'
+      
+      await user.type(screen.getByLabelText(/first name/i), 'John')
+      await user.type(screen.getByLabelText(/last name/i), 'Doe')
+      await user.type(screen.getByLabelText(/email address/i), 'test@example.com')
+      await user.type(screen.getByLabelText(/phone number/i), maliciousPhone)
+      
+      await user.click(screen.getByRole('button', { name: /create customer/i }))
+
+      await waitFor(() => {
+        expect(screen.getByText('Please enter a valid phone number')).toBeInTheDocument()
+      })
+    })
+
+    it('should accept safe input values', async () => {
+      mockedCustomerApi.createCustomer.mockResolvedValue({ id: 1 })
+      
+      renderCustomerForm()
+      
+      const user = userEvent.setup()
+      
+      await user.type(screen.getByLabelText(/first name/i), "John O'Connor")
+      await user.type(screen.getByLabelText(/last name/i), 'Smith-Jones')
+      await user.type(screen.getByLabelText(/email address/i), 'john.smith@example.com')
+      await user.type(screen.getByLabelText(/phone number/i), '(555) 123-4567')
+      
+      await user.click(screen.getByRole('button', { name: /create customer/i }))
+
+      await waitFor(() => {
+        expect(mockedCustomerApi.createCustomer).toHaveBeenCalled()
+      })
+    })
+  })
+
   describe('Error Message Sanitization', () => {
     it('should sanitize XSS attempts in API error messages', async () => {
       // Mock API to return an error with XSS payload
