@@ -1,21 +1,34 @@
+const path = require('path');
+
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['<rootDir>/../unit/frontend/setup.ts'],
+  rootDir: path.resolve(__dirname, '../../frontend'),
+  roots: [
+    '<rootDir>',
+    '<rootDir>/../tests'
+  ],
+  setupFilesAfterEnv: ['<rootDir>/../tests/unit/frontend/setup.ts'],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/../../frontend/src/$1',
+    '^@/(.*)$': '<rootDir>/src/$1',
   },
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
   testMatch: [
-    '<rootDir>/../unit/frontend/**/*.(test|spec).(ts|tsx)',
-    '<rootDir>/../integration/frontend/**/*.(test|spec).(ts|tsx)',
+    '<rootDir>/../tests/unit/frontend/**/*.test.ts',
+    '<rootDir>/../tests/unit/frontend/**/*.test.tsx',
+    '<rootDir>/../tests/unit/frontend/**/*.spec.ts',
+    '<rootDir>/../tests/unit/frontend/**/*.spec.tsx',
+    '<rootDir>/../tests/integration/frontend/**/*.test.ts',
+    '<rootDir>/../tests/integration/frontend/**/*.test.tsx',
+    '<rootDir>/../tests/integration/frontend/**/*.spec.ts',
+    '<rootDir>/../tests/integration/frontend/**/*.spec.tsx',
   ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   collectCoverageFrom: [
-    '../../frontend/src/**/*.(ts|tsx)',
-    '!../../frontend/src/**/*.d.ts',
+    'src/**/*.(ts|tsx)',
+    '!src/**/*.d.ts',
   ],
   globals: {
     'ts-jest': {

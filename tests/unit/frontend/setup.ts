@@ -65,7 +65,7 @@ const mockCustomerApi = {
 };
 
 // Mock API services
-jest.mock('../services/api', () => ({
+jest.mock('@/services/api', () => ({
   customerApi: mockCustomerApi,
   default: {
     get: jest.fn(),

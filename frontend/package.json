@@ -8,9 +8,9 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
+    "test": "jest --config ../tests/config/jest.config.cjs",
+    "test:watch": "jest --watch --config ../tests/config/jest.config.cjs",
+    "test:coverage": "jest --coverage --config ../tests/config/jest.config.cjs",
     "semantic-release": "semantic-release"
   },
   "dependencies": {

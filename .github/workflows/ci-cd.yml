@@ -139,7 +139,8 @@ jobs:
         run: pnpm --filter customer-management-frontend exec tsc --noEmit
 
       - name: Run tests
-        run: pnpm --filter customer-management-frontend test:coverage
+        working-directory: ./frontend
+        run: pnpm test:coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
