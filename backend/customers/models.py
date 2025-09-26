@@ -1,5 +1,6 @@
 from django.core.validators import EmailValidator, RegexValidator  # type: ignore
 from django.db import models  # type: ignore
+from django.utils.html import escape  # type: ignore
 
 
 class Customer(models.Model):
@@ -40,12 +41,12 @@ class Customer(models.Model):
         ]
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name} ({self.email})"
+        return escape(f"{self.first_name} {self.last_name} ({self.email})")
 
     @property
     def full_name(self):
         """Returns the customer's full name."""
-        return f"{self.first_name} {self.last_name}"
+        return escape(f"{self.first_name} {self.last_name}")
 
     def clean(self):
         """Custom validation for the model."""

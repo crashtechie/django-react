@@ -4,6 +4,17 @@ import { CustomerFormData } from '../types'
 import { customerApi } from '../services/api'
 import toast from 'react-hot-toast'
 
+// Sanitize HTML content to prevent XSS attacks
+const sanitizeHtml = (input: string): string => {
+  return input
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#x27;')
+    .replace(/\//g, '&#x2F;')
+}
+
 interface FormErrors {
   first_name?: string
   last_name?: string
@@ -161,8 +172,9 @@ const CustomerForm = () => {
       navigate('/customers', { replace: true })
     } catch (error: unknown) {
       console.error('Failed to save customer:', error)
-      const errorMessage = (error as { response?: { data?: { detail?: string } } })?.response?.data?.detail || 
+      const rawErrorMessage = (error as { response?: { data?: { detail?: string } } })?.response?.data?.detail || 
         (isEditing ? 'Failed to update customer' : 'Failed to create customer')
+      const errorMessage = sanitizeHtml(rawErrorMessage)
       setErrors({ general: errorMessage })
       toast.error(errorMessage)
     } finally {
