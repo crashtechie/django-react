@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { CustomerFormData } from '../types'
 import { customerApi } from '../services/api'
+import { safeConsole } from '../utils/logSanitization'
 import toast from 'react-hot-toast'
 
 // Sanitize HTML content to prevent XSS attacks
@@ -76,7 +77,7 @@ const CustomerForm = () => {
           })
         })
         .catch(error => {
-          console.error('Failed to load customer:', error)
+          safeConsole.error('Failed to load customer:', error)
           toast.error('Failed to load customer data')
           navigate('/customers')
         })
@@ -193,7 +194,7 @@ const CustomerForm = () => {
       // Navigate back to customer list on success
       navigate('/customers', { replace: true })
     } catch (error: unknown) {
-      console.error('Failed to save customer:', error)
+      safeConsole.error('Failed to save customer:', error)
       const rawErrorMessage = (error as { response?: { data?: { detail?: string } } })?.response?.data?.detail || 
         (isEditing ? 'Failed to update customer' : 'Failed to create customer')
       const errorMessage = sanitizeHtml(rawErrorMessage)
