@@ -1,0 +1,177 @@
+<mxfile host="app.diagrams.net" modified="2025-01-27T00:00:00.000Z" agent="5.0" etag="drawio" version="22.1.16" type="device">
+  <diagram name="High-Level Architecture" id="high-level-arch">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Client Layer -->
+        <mxCell id="client-layer" value="Client Layer" style="swimlane;whiteSpace=wrap;html=1;fillColor=#e1f5fe;strokeColor=#01579b;" vertex="1" parent="1">
+          <mxGeometry x="50" y="50" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="browser" value="Web Browser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;" vertex="1" parent="client-layer">
+          <mxGeometry x="20" y="30" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mobile" value="Mobile Browser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;" vertex="1" parent="client-layer">
+          <mxGeometry x="110" y="30" width="80" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Load Balancer -->
+        <mxCell id="nginx-layer" value="Load Balancer &amp; Proxy" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#4a148c;" vertex="1" parent="1">
+          <mxGeometry x="300" y="50" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="nginx" value="Nginx Reverse Proxy" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ce93d8;" vertex="1" parent="nginx-layer">
+          <mxGeometry x="50" y="40" width="100" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Frontend Layer -->
+        <mxCell id="frontend-layer" value="Frontend Layer" style="swimlane;whiteSpace=wrap;html=1;fillColor=#e8f5e8;strokeColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="550" y="50" width="250" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="react" value="React TypeScript App" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;" vertex="1" parent="frontend-layer">
+          <mxGeometry x="20" y="30" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="vite" value="Vite Dev Server" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;" vertex="1" parent="frontend-layer">
+          <mxGeometry x="100" y="30" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="static" value="Static Assets" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;" vertex="1" parent="frontend-layer">
+          <mxGeometry x="180" y="30" width="60" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Backend Layer -->
+        <mxCell id="backend-layer" value="Backend Layer" style="swimlane;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="300" y="220" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="django" value="Django REST API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc02;" vertex="1" parent="backend-layer">
+          <mxGeometry x="20" y="30" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="drf" value="Django REST Framework" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc02;" vertex="1" parent="backend-layer">
+          <mxGeometry x="100" y="30" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="auth" value="Authentication" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcc02;" vertex="1" parent="backend-layer">
+          <mxGeometry x="60" y="70" width="80" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Data Layer -->
+        <mxCell id="data-layer" value="Data Layer" style="swimlane;whiteSpace=wrap;html=1;fillColor=#ffebee;strokeColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="300" y="390" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="postgresql" value="PostgreSQL Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffcdd2;" vertex="1" parent="data-layer">
+          <mxGeometry x="30" y="30" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="redis" value="Redis Cache" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffcdd2;" vertex="1" parent="data-layer">
+          <mxGeometry x="110" y="30" width="60" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Infrastructure -->
+        <mxCell id="infra-layer" value="Infrastructure" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f1f8e9;strokeColor=#33691e;" vertex="1" parent="1">
+          <mxGeometry x="50" y="390" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="docker" value="Docker Containers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;" vertex="1" parent="infra-layer">
+          <mxGeometry x="20" y="30" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="networks" value="Docker Networks" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;" vertex="1" parent="infra-layer">
+          <mxGeometry x="100" y="30" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="volumes" value="Docker Volumes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;" vertex="1" parent="infra-layer">
+          <mxGeometry x="60" y="70" width="80" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Connections -->
+        <mxCell id="conn1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="browser" target="nginx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="mobile" target="nginx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nginx" target="react">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nginx" target="django">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="react" target="drf">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="django" target="postgresql">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="django" target="redis">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+  
+  <diagram name="Network Architecture" id="network-arch">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- External Network -->
+        <mxCell id="external-net" value="External Network" style="swimlane;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1976d2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="50" width="300" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="internet" value="Internet" style="ellipse;whiteSpace=wrap;html=1;fillColor=#bbdefb;" vertex="1" parent="external-net">
+          <mxGeometry x="30" y="30" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cdn" value="CDN/CloudFlare" style="ellipse;whiteSpace=wrap;html=1;fillColor=#bbdefb;" vertex="1" parent="external-net">
+          <mxGeometry x="150" y="30" width="100" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Docker Networks -->
+        <mxCell id="docker-networks" value="Docker Networks" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#7b1fa2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="200" width="700" height="400" as="geometry" />
+        </mxCell>
+        
+        <!-- External Docker Network -->
+        <mxCell id="ext-docker-net" value="External Network (customer-management-external)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#e1f5fe;strokeColor=#0277bd;" vertex="1" parent="docker-networks">
+          <mxGeometry x="50" y="40" width="280" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="nginx-ext" value="Nginx:80/443" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#81d4fa;" vertex="1" parent="ext-docker-net">
+          <mxGeometry x="90" y="40" width="100" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Internal Docker Network -->
+        <mxCell id="int-docker-net" value="Internal Network (customer-management-internal)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#e8f5e8;strokeColor=#388e3c;" vertex="1" parent="docker-networks">
+          <mxGeometry x="50" y="180" width="600" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="react-int" value="React:3000" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;" vertex="1" parent="int-docker-net">
+          <mxGeometry x="50" y="40" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="django-int" value="Django:8000" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a5d6a7;" vertex="1" parent="int-docker-net">
+          <mxGeometry x="180" y="40" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="postgres-int" value="PostgreSQL:5432" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#a5d6a7;" vertex="1" parent="int-docker-net">
+          <mxGeometry x="330" y="30" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="redis-int" value="Redis:6379" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#a5d6a7;" vertex="1" parent="int-docker-net">
+          <mxGeometry x="460" y="30" width="80" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Connections -->
+        <mxCell id="net-conn1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="internet" target="cdn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="net-conn2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="cdn" target="nginx-ext">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="net-conn3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nginx-ext" target="react-int">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="net-conn4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="nginx-ext" target="django-int">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="net-conn5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="django-int" target="postgres-int">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="net-conn6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="django-int" target="redis-int">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,6 +1,6 @@
 # Customer Management System
 
-Version: 0.1.0
+Version: 0.2.0
 
 A modern, full-stack customer management application built with Django, React, and Docker, designed with security and scalability in mind.
 
