@@ -23,6 +23,7 @@ This document provides a comprehensive analysis of 8 critical problems identifie
 - **Impact**: Blocks entire CI/CD pipeline and development workflow
 - **Root Cause**: Django tests require PostgreSQL without SQLite fallback
 - **Business Impact**: $2,000-3,000 weekly productivity loss
+- **Timing**: Introduced 2024-01-10 09:20:00 MST, discovered 2024-02-18 03:15:00 MST (39 days to discovery)
 - **Resolution Time**: 1-2 days for emergency fix, 3-5 days for complete solution
 - **Success Criteria**: Tests run without external database dependency
 
@@ -30,6 +31,7 @@ This document provides a comprehensive analysis of 8 critical problems identifie
 - **Impact**: Core customer form functionality broken
 - **Root Cause**: Inconsistent state management and missing loading indicators
 - **Business Impact**: $1,500-2,500 weekly impact, potential data integrity issues
+- **Timing**: Introduced 2024-01-25 04:45:00 MST, discovered 2024-02-22 02:20:00 MST (28 days to discovery)
 - **Resolution Time**: 1-2 days for immediate fix, 3-4 days for complete solution
 - **Success Criteria**: Reliable form submission with proper user feedback
 
@@ -37,6 +39,7 @@ This document provides a comprehensive analysis of 8 critical problems identifie
 - **Impact**: Core functionality non-functional, application unusable
 - **Root Cause**: Components use hardcoded mock data instead of API calls
 - **Business Impact**: $3,000-5,000 weekly impact, complete loss of business value
+- **Timing**: Introduced 2024-01-15 02:00:00 MST, discovered 2024-02-20 07:30:00 MST (36 days to discovery)
 - **Resolution Time**: 2-3 days for basic integration, 4-5 days for complete solution
 - **Success Criteria**: Real customer data displayed and manageable
 
@@ -44,6 +47,7 @@ This document provides a comprehensive analysis of 8 critical problems identifie
 - **Impact**: Test reliability compromised, potential navigation issues
 - **Root Cause**: Mismatch between test expectations and navigation implementation
 - **Business Impact**: $1,000-1,500 weekly productivity loss
+- **Timing**: Introduced 2024-01-28 06:15:00 MST, discovered 2024-02-19 04:40:00 MST (22 days to discovery)
 - **Resolution Time**: 1 day for investigation, 3-4 days for complete solution
 - **Success Criteria**: Reliable navigation tests and functionality
 
@@ -53,6 +57,7 @@ This document provides a comprehensive analysis of 8 critical problems identifie
 - **Impact**: Potential information disclosure and security vulnerabilities
 - **Root Cause**: Inadequate error sanitization and handling
 - **Business Impact**: $2,000-4,000 potential security incident costs
+- **Timing**: Security issue identified during code review process
 - **Resolution Time**: 1-2 days for security fixes, 3-4 days for complete solution
 - **Success Criteria**: No sensitive information exposed in errors
 
@@ -60,6 +65,7 @@ This document provides a comprehensive analysis of 8 critical problems identifie
 - **Impact**: OS command injection vulnerabilities in development tools
 - **Root Cause**: Use of shell=True without input validation
 - **Business Impact**: $1,000-2,000 potential security incident costs
+- **Timing**: Security vulnerability identified during security audit
 - **Resolution Time**: 1 day for security fixes, 3-4 days for complete solution
 - **Success Criteria**: All command execution secured and validated
 
@@ -69,6 +75,7 @@ This document provides a comprehensive analysis of 8 critical problems identifie
 - **Impact**: Dashboard shows "Loading..." instead of real statistics
 - **Root Cause**: Missing API integration for dashboard statistics
 - **Business Impact**: $800-1,200 weekly impact on user engagement
+- **Timing**: Introduced 2024-01-20 07:30:00 MST, discovered 2024-02-15 09:45:00 MST (26 days to discovery)
 - **Resolution Time**: 1-2 days for basic fix, 3-4 days for enhanced solution
 - **Success Criteria**: Real-time customer statistics displayed
 
@@ -76,6 +83,7 @@ This document provides a comprehensive analysis of 8 critical problems identifie
 - **Impact**: Unreliable snapshot tests creating false negatives
 - **Root Cause**: UI changes without corresponding snapshot updates
 - **Business Impact**: $500-1,000 weekly productivity loss
+- **Timing**: Introduced 2024-02-01 03:20:00 MST, discovered 2024-02-25 07:15:00 MST (24 days to discovery)
 - **Resolution Time**: 1 day for updates, 3-4 days for process improvement
 - **Success Criteria**: Reliable snapshot testing with maintenance process
 

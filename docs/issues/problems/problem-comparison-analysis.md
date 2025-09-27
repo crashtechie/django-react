@@ -78,6 +78,22 @@ This document provides a comprehensive comparative analysis between **21+ resolv
 
 **Analysis**: 67% of UX problems resolved, with remaining issues affecting core functionality.
 
+## Timing Analysis Comparison
+
+### Resolved Problems Timing Patterns
+- **Mean Time to Resolve**: 1.6 days per problem
+- **Fastest Resolution**: 0.5 days (configuration fixes)
+- **Longest Resolution**: 4 days (React hooks environment)
+- **Total Resolution Effort**: 34 days across 21+ problems
+- **Category Averages**: Infrastructure (2.2 days), Security (1.25 days), Testing (1.5 days)
+
+### Active Problems Discovery Patterns
+- **Average Time to Discovery**: 29 days across active problems
+- **Longest Undetected**: Problem #38 (39 days)
+- **Shortest Undetected**: Problem #37 (22 days)
+- **Average Reporting Time**: 45 minutes after discovery
+- **Problem Age Range**: 25-47+ days (ongoing)
+
 ## Success Pattern Analysis
 
 ### Resolution Success Factors
@@ -97,16 +113,22 @@ This document provides a comprehensive comparative analysis between **21+ resolv
 ### Remaining Problem Patterns
 
 #### Critical Blockers (2 problems)
-- **Database Dependencies**: Backend tests require PostgreSQL
-- **API Integration Gap**: Core functionality missing
+- **Database Dependencies**: Backend tests require PostgreSQL (47+ days old)
+- **API Integration Gap**: Core functionality missing (45+ days old)
 
 #### Quality Issues (4 problems)
-- **State Management**: Form reliability concerns
-- **Test Maintenance**: Snapshot and navigation test issues
+- **State Management**: Form reliability concerns (33+ days old)
+- **Test Maintenance**: Snapshot and navigation test issues (25-29+ days old)
 
 #### User Experience (2 problems)
-- **Dashboard Functionality**: Static data display
-- **Form User Feedback**: Loading and error states
+- **Dashboard Functionality**: Static data display (41+ days old)
+- **Form User Feedback**: Loading and error states (33+ days old)
+
+### Discovery Time Analysis
+- **Infrastructure Problems**: Average 32.5 days to discovery
+- **Security Problems**: Identified during proactive security audits
+- **UX Problems**: Average 27 days to discovery
+- **Testing Problems**: Average 23 days to discovery
 
 ## Financial Impact Comparison
 
