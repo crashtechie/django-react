@@ -7,6 +7,15 @@
 - **Urgency**: Medium (Affects development workflow)
 - **Severity**: Minor
 
+## Timing Information
+- **Introduced**: 2024-02-01 10:20:00 UTC (UI component modifications)
+- **Discovered**: 2024-02-25 14:15:00 UTC (Test suite execution)
+- **Reported**: 2024-02-25 14:45:00 UTC (Issue documented)
+- **Resolved**: Not resolved (Active problem)
+- **Time to Discovery**: 24 days
+- **Time to Report**: 30 minutes after discovery
+- **Total Age**: 25+ days (ongoing)
+
 ## Executive Summary
 
 **Business Impact**: Outdated snapshot tests create false negatives in the test suite, reducing developer confidence and potentially masking real UI regressions. This leads to increased manual testing overhead, slower development cycles, and reduced effectiveness of automated quality assurance processes.

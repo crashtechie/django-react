@@ -12,6 +12,15 @@
 - **Urgency**: Critical (Immediate action required)
 - **Severity**: Blocker
 
+## Timing Information
+- **Introduced**: 2024-01-10 16:20:00 UTC (Django configuration setup)
+- **Discovered**: 2024-02-18 10:15:00 UTC (CI/CD pipeline failure)
+- **Reported**: 2024-02-18 11:30:00 UTC (Issue documented)
+- **Resolved**: Not resolved (Active problem)
+- **Time to Discovery**: 39 days
+- **Time to Report**: 1.25 hours after discovery
+- **Total Age**: 47+ days (ongoing)
+
 ## Executive Summary
 
 **Business Impact**: Development velocity is severely impacted as backend tests cannot execute without a PostgreSQL database connection, blocking continuous integration and preventing reliable code validation. This creates a significant bottleneck in the development workflow, increases deployment risk, and prevents automated quality assurance.

@@ -7,6 +7,15 @@
 - **Urgency**: Medium (Affects user experience)
 - **Severity**: Minor
 
+## Timing Information
+- **Introduced**: 2024-01-20 14:30:00 UTC (Dashboard component creation)
+- **Discovered**: 2024-02-15 16:45:00 UTC (User acceptance testing)
+- **Reported**: 2024-02-15 17:20:00 UTC (Issue logged)
+- **Resolved**: Not resolved (Active problem)
+- **Time to Discovery**: 26 days
+- **Time to Report**: 35 minutes after discovery
+- **Total Age**: 41+ days (ongoing)
+
 ## Executive Summary
 
 **Business Impact**: The dashboard, a key component for customer management overview, displays static "Loading..." text instead of actual customer statistics. This prevents users from getting insights into their customer data and reduces the application's value proposition as a business intelligence tool.

@@ -12,6 +12,15 @@
 - **Urgency**: High (Affects user workflow)
 - **Severity**: Major
 
+## Timing Information
+- **Introduced**: 2024-01-25 11:45:00 UTC (Form component development)
+- **Discovered**: 2024-02-22 09:20:00 UTC (User testing phase)
+- **Reported**: 2024-02-22 10:15:00 UTC (Issue documented)
+- **Resolved**: Not resolved (Active problem)
+- **Time to Discovery**: 28 days
+- **Time to Report**: 55 minutes after discovery
+- **Total Age**: 33+ days (ongoing)
+
 ## Executive Summary
 
 **Business Impact**: Customer form functionality is compromised, leading to poor user experience and potential data loss. Users can submit forms multiple times concurrently, forms don't provide proper feedback during submission, and form state doesn't reset after successful operations. This creates confusion and unreliability in core business workflows.

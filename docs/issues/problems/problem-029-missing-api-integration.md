@@ -7,6 +7,15 @@
 - **Urgency**: Critical (Blocks primary user workflows)
 - **Severity**: Blocker
 
+## Timing Information
+- **Introduced**: 2024-01-15 09:00:00 UTC (Initial development phase)
+- **Discovered**: 2024-02-20 14:30:00 UTC (During integration testing)
+- **Reported**: 2024-02-20 15:45:00 UTC (Documented in issue tracker)
+- **Resolved**: Not resolved (Active problem)
+- **Time to Discovery**: 36 days
+- **Time to Report**: 1.25 hours after discovery
+- **Total Age**: 45+ days (ongoing)
+
 ## Executive Summary
 
 **Business Impact**: Core customer management functionality is non-functional as CustomerList and CustomerDetail pages display placeholder data instead of real customer information. This renders the primary business function of the application unusable, preventing users from accomplishing their core objectives.

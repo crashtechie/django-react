@@ -12,6 +12,15 @@
 - **Urgency**: High (Blocks development workflow)
 - **Severity**: Major
 
+## Timing Information
+- **Introduced**: 2024-01-28 13:15:00 UTC (Navigation test implementation)
+- **Discovered**: 2024-02-19 11:40:00 UTC (CI/CD test failures)
+- **Reported**: 2024-02-19 12:25:00 UTC (Issue documented)
+- **Resolved**: Not resolved (Active problem)
+- **Time to Discovery**: 22 days
+- **Time to Report**: 45 minutes after discovery
+- **Total Age**: 29+ days (ongoing)
+
 ## Executive Summary
 
 **Business Impact**: Test suite reliability is compromised, leading to false negatives and reduced confidence in code changes. Navigation functionality may not work as expected in production, potentially causing user workflow disruptions and reducing system usability.
