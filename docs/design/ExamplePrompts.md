@@ -227,6 +227,523 @@ Save business impact analysis to: doc/code-analysis/business-impact-analysis.md
 
 ### General Level: Code Understanding and Context
 ```
+Provide comprehensive code analysis with balanced technical and business context:
+
+CODE ARCHITECTURE OVERVIEW:
+- System design philosophy and architectural patterns used
+- Code organization and structure with maintainability assessment
+- Technology stack evaluation and framework utilization
+- Integration points and external dependencies analysis
+
+CODE QUALITY ASSESSMENT:
+- Maintainability score with specific improvement recommendations
+- Security implementation review with vulnerability assessment
+- Performance optimization opportunities with impact analysis
+- Technical debt identification with remediation priorities
+
+PRACTICAL IMPLEMENTATION CONTEXT:
+- Development workflow integration and developer experience
+- Deployment considerations and operational complexity
+- Testing strategy and coverage assessment
+- Documentation quality and knowledge transfer requirements
+
+IMPROVEMENT ROADMAP:
+- Immediate improvements with quick wins and low effort
+- Short-term enhancements with moderate impact and effort
+- Long-term strategic improvements with high impact
+- Success metrics and progress tracking framework
+
+Save code understanding analysis to: doc/code-analysis/code-understanding-context.md
+```
+
+### Technical Level: Detailed Technical Code Analysis
+```
+Conduct in-depth technical code analysis covering:
+
+TECHNICAL ARCHITECTURE DEEP DIVE:
+- Component-level technical analysis with code quality scoring
+- Database schema optimization and query performance analysis
+- API layer architecture with security and performance assessment
+- Configuration management and deployment architecture review
+
+CODE IMPLEMENTATION SPECIFICATIONS:
+- Security implementation with validation framework analysis
+- Performance optimization with benchmarking and caching strategies
+- Testing specifications with unit, integration, and performance tests
+- Error handling and logging implementation review
+
+TECHNICAL DEBT AND OPTIMIZATION:
+- Current technical debt assessment with remediation priorities
+- Refactoring recommendations with effort and impact analysis
+- Performance bottleneck identification with optimization solutions
+- Scalability assessment with architecture improvement recommendations
+
+IMPLEMENTATION ROADMAP:
+- Immediate technical improvements with code examples
+- Medium-term technical enhancements with architecture changes
+- Long-term technical architecture with scalability considerations
+- Technical success metrics and monitoring specifications
+
+Save detailed technical analysis to: doc/code-analysis/detailed-technical-analysis.md
+Include code examples in: doc/code-analysis/technical-examples/
+```
+
+---
+
+## Problem Analysis Prompts
+
+### Executive Level: Strategic Problem Assessment
+```
+Analyze identified issues and provide executive-level problem assessment including:
+
+BUSINESS PROBLEM QUANTIFICATION:
+- Financial impact of each problem (revenue loss, cost increase, opportunity cost)
+- Customer satisfaction and retention impact from unresolved issues
+- Competitive disadvantage and market position risks
+- Regulatory compliance violations and associated penalties
+
+STRATEGIC PROBLEM PRIORITIZATION:
+- Problem severity matrix with business impact vs resolution complexity
+- Critical path analysis showing problem dependencies and cascading effects
+- Timeline sensitivity - which problems worsen without immediate action
+- Resource allocation strategy based on problem ROI and business value
+
+EXECUTIVE DECISION FRAMEWORK:
+- Go/no-go decisions for problem resolution investments
+- Budget requirements and approval thresholds for each problem category
+- Stakeholder communication plan for high-impact problems
+- Success metrics and KPIs for problem resolution tracking
+
+OUTPUT REQUIREMENTS:
+- Executive problem dashboard with key indicators and trends
+- Board-level problem summary with clear action recommendations
+- Investment justification with ROI analysis for problem resolution
+- Risk mitigation timeline with business continuity considerations
+
+Save executive problem assessment to: docs/analysis/executive/problem-analysis/strategic-problem-assessment.md
+```
+
+### General Level: Problem Context and Impact Analysis
+```
+Provide comprehensive problem analysis with balanced technical and business context:
+
+PROBLEM IDENTIFICATION AND CONTEXT:
+- Root cause analysis with clear explanation of how problems originated
+- Problem interdependencies and how issues compound each other
+- User experience impact and customer-facing consequences
+- System reliability and operational efficiency implications
+
+PRACTICAL PROBLEM RESOLUTION:
+- Problem prioritization based on impact, effort, and business value
+- Resource requirements (team, time, budget) for each problem resolution
+- Implementation timeline with realistic milestones and dependencies
+- Testing and validation strategy to ensure problems are fully resolved
+
+STAKEHOLDER COMMUNICATION:
+- Problem explanations suitable for non-technical stakeholders
+- Impact assessment in business terms (revenue, customers, operations)
+- Decision points requiring management approval or resource allocation
+- Progress tracking and reporting framework for problem resolution
+
+ALTERNATIVE SOLUTIONS:
+- Multiple resolution approaches with pros/cons analysis
+- Workaround strategies for immediate problem mitigation
+- Long-term vs short-term solution trade-offs
+- Cost-benefit analysis for different resolution approaches
+
+Save problem context analysis to: docs/analysis/general/problem-analysis/problem-context-impact-analysis.md
+```
+
+### Technical Level: Detailed Problem Root Cause Analysis
+```
+Conduct in-depth technical problem analysis covering:
+
+TECHNICAL ROOT CAUSE ANALYSIS:
+- Detailed failure mode analysis with system interaction diagrams
+- Code-level issues with specific file references and line numbers
+- Architecture and design pattern violations contributing to problems
+- Performance bottlenecks and scalability limitations causing issues
+
+PROBLEM REPRODUCTION AND DEBUGGING:
+- Step-by-step problem reproduction scenarios with test cases
+- Debugging methodology and tools for problem investigation
+- Log analysis and monitoring data interpretation
+- Environment-specific factors contributing to problem manifestation
+
+TECHNICAL SOLUTION SPECIFICATIONS:
+- Detailed implementation plans with code examples and architecture changes
+- Database schema modifications and migration strategies
+- API changes and backward compatibility considerations
+- Testing framework requirements for problem validation
+
+PREVENTION AND MONITORING:
+- Code review checklist to prevent similar problems
+- Automated testing strategies to catch problems early
+- Monitoring and alerting improvements to detect problems faster
+- Technical debt reduction plan to address underlying problem causes
+
+IMPLEMENTATION ROADMAP:
+- Technical task breakdown with effort estimates and dependencies
+- Development environment setup for problem resolution
+- Deployment strategy and rollback procedures
+- Performance benchmarks and success criteria
+
+Save technical problem analysis to: docs/analysis/technical/problem-analysis/detailed-root-cause-analysis.md
+Include technical diagrams in: docs/analysis/technical/problem-analysis/technical-diagrams/
+Include code examples in: docs/analysis/technical/problem-analysis/solution-examples/
+```
+
+---
+
+## Performance Problem Analysis Prompts
+
+### Executive Level: Performance Impact Business Assessment
+```
+Analyze performance issues with focus on business impact and strategic implications:
+
+BUSINESS PERFORMANCE IMPACT:
+- Revenue impact from slow response times and system unavailability
+- Customer churn risk and satisfaction scores related to performance
+- Operational cost increase from performance-related support and infrastructure
+- Competitive disadvantage from poor user experience vs competitors
+
+STRATEGIC PERFORMANCE INVESTMENT:
+- Performance optimization ROI with quantified business benefits
+- Infrastructure scaling costs vs performance improvement benefits
+- Technology modernization investment requirements and timeline
+- Market opportunity cost from performance limitations
+
+EXECUTIVE PERFORMANCE METRICS:
+- Key performance indicators aligned with business objectives
+- Performance SLA requirements for customer contracts and agreements
+- Performance benchmarking against industry standards and competitors
+- Performance-related risk assessment and mitigation strategies
+
+Save performance business assessment to: docs/analysis/executive/problem-analysis/performance-impact-assessment.md
+```
+
+### Technical Level: Performance Problem Deep Dive
+```
+Conduct comprehensive technical performance analysis:
+
+PERFORMANCE PROFILING AND ANALYSIS:
+- Detailed performance bottleneck identification with profiling data
+- Database query analysis with execution plans and optimization recommendations
+- Memory usage patterns and garbage collection impact analysis
+- Network latency and bandwidth utilization assessment
+
+SCALABILITY PROBLEM ANALYSIS:
+- Load testing results with breaking point identification
+- Concurrent user capacity analysis and scaling limitations
+- Resource utilization patterns under different load scenarios
+- Architecture scalability constraints and recommended solutions
+
+PERFORMANCE OPTIMIZATION SPECIFICATIONS:
+- Caching strategy implementation with specific technology recommendations
+- Database optimization techniques with query rewriting examples
+- Code-level optimizations with before/after performance comparisons
+- Infrastructure scaling recommendations with cost-benefit analysis
+
+Save technical performance analysis to: docs/analysis/technical/problem-analysis/performance-deep-dive.md
+```
+
+---
+
+## Integration Problem Analysis Prompts
+
+### General Level: Integration Problem Assessment
+```
+Analyze integration issues with focus on system interoperability and business impact:
+
+INTEGRATION PROBLEM IDENTIFICATION:
+- API compatibility issues and version conflicts
+- Data synchronization problems and consistency issues
+- Authentication and authorization integration failures
+- Third-party service dependencies and reliability problems
+
+BUSINESS INTEGRATION IMPACT:
+- Workflow disruption and operational efficiency impact
+- Data integrity risks and compliance implications
+- Customer experience degradation from integration failures
+- Partner relationship impact from integration reliability issues
+
+INTEGRATION SOLUTION STRATEGY:
+- Integration architecture improvements and standardization
+- API versioning and backward compatibility strategies
+- Error handling and retry mechanisms for robust integrations
+- Monitoring and alerting for integration health and performance
+
+Save integration problem analysis to: docs/analysis/general/problem-analysis/integration-problem-assessment.md
+```
+
+---
+
+## User Experience Problem Analysis Prompts
+
+### General Level: UX Problem Impact Analysis
+```
+Analyze user experience issues with focus on customer impact and business consequences:
+
+USER EXPERIENCE PROBLEM ASSESSMENT:
+- User journey analysis with pain point identification
+- Accessibility issues and compliance gap analysis
+- Mobile responsiveness and cross-platform compatibility problems
+- User interface usability issues and design inconsistencies
+
+CUSTOMER IMPACT QUANTIFICATION:
+- User satisfaction scores and feedback analysis related to UX problems
+- Task completion rates and user efficiency metrics
+- Customer support ticket analysis for UX-related issues
+- User retention and churn correlation with UX problem areas
+
+UX IMPROVEMENT STRATEGY:
+- User experience optimization roadmap with priority ranking
+- Design system implementation for consistency and maintainability
+- Accessibility compliance plan with WCAG guidelines adherence
+- User testing and feedback integration process for continuous improvement
+
+Save UX problem analysis to: docs/analysis/general/problem-analysis/ux-problem-impact-analysis.md
+```
+
+---
+
+## Automation Analysis Prompts
+
+### Executive Level: Automation Strategy Assessment
+```
+Analyze this project for automation opportunities with executive-level strategic focus:
+
+AUTOMATION BUSINESS CASE:
+- ROI analysis for implementing automated analysis workflows
+- Cost-benefit comparison of manual vs automated code review processes
+- Strategic competitive advantage from automated quality assurance
+- Risk reduction quantification from continuous automated monitoring
+
+AUTOMATION INVESTMENT ANALYSIS:
+- Implementation costs for automated analysis infrastructure
+- Ongoing operational costs for AI-powered code analysis
+- Resource savings from reduced manual review time
+- Quality improvement metrics and business impact
+
+STRATEGIC AUTOMATION ROADMAP:
+- Phase 1: Critical automation priorities with immediate ROI
+- Phase 2: Enhanced automation capabilities for competitive advantage
+- Phase 3: Advanced AI-driven insights for strategic decision making
+- Success metrics and KPIs for automation effectiveness
+
+EXECUTIVE AUTOMATION DECISIONS:
+- Budget allocation for automation tools and infrastructure
+- Team resource allocation for automation implementation
+- Vendor selection criteria for automation platforms
+- Governance framework for automated analysis results
+
+Save executive automation assessment to: docs/analysis/executive/automation/automation-strategy-assessment.md
+```
+
+### General Level: Automation Implementation Planning
+```
+Provide comprehensive automation analysis with balanced technical and business context:
+
+AUTOMATION OPPORTUNITY IDENTIFICATION:
+- Repetitive analysis tasks suitable for automation
+- Manual processes that could benefit from AI assistance
+- Quality gates that could be automated in CI/CD pipeline
+- Reporting and documentation generation automation potential
+
+PRACTICAL AUTOMATION IMPLEMENTATION:
+- Step-by-step automation implementation plan
+- Tool selection criteria and evaluation framework
+- Integration requirements with existing development workflow
+- Training and change management for automated processes
+
+AUTOMATION IMPACT ASSESSMENT:
+- Developer productivity improvements from automation
+- Code quality consistency through automated analysis
+- Faster feedback loops and reduced time-to-market
+- Risk mitigation through continuous automated monitoring
+
+IMPLEMENTATION CONSIDERATIONS:
+- Resource requirements for automation setup and maintenance
+- Timeline for automation rollout with milestone planning
+- Change management strategy for team adoption
+- Success metrics and continuous improvement framework
+
+Save automation implementation analysis to: docs/analysis/general/automation/automation-implementation-planning.md
+```
+
+### Technical Level: Detailed Automation Architecture
+```
+Conduct in-depth technical automation analysis covering:
+
+AUTOMATION ARCHITECTURE DESIGN:
+- CI/CD pipeline integration points for automated analysis
+- API integration specifications for AI-powered code review
+- Webhook and event-driven automation trigger mechanisms
+- Scalable infrastructure design for automated analysis workflows
+
+TECHNICAL AUTOMATION SPECIFICATIONS:
+- GitHub Actions workflow configurations for automated analysis
+- Docker containerization for consistent analysis environments
+- Database schema for storing analysis results and metrics
+- API endpoints for triggering and retrieving analysis results
+
+AUTOMATION TOOL INTEGRATION:
+- AI/LLM API integration patterns and error handling
+- Version control system hooks for automated analysis triggers
+- Issue tracking system integration for automated issue creation
+- Notification system integration for analysis result distribution
+
+PERFORMANCE AND SCALABILITY:
+- Analysis execution time optimization strategies
+- Parallel processing implementation for large codebases
+- Caching mechanisms for improved analysis performance
+- Resource usage monitoring and optimization
+
+AUTOMATION QUALITY ASSURANCE:
+- Automated testing for analysis automation workflows
+- Result validation and quality control mechanisms
+- Error handling and recovery procedures
+- Monitoring and alerting for automation system health
+
+Save technical automation analysis to: docs/analysis/technical/automation/detailed-automation-architecture.md
+Include automation code examples in: docs/analysis/technical/automation/code-examples/
+Include infrastructure diagrams in: docs/analysis/technical/automation/architecture-diagrams/
+```
+
+---
+
+## Continuous Integration Analysis Prompts
+
+### General Level: CI/CD Pipeline Analysis
+```
+Analyze the CI/CD pipeline for automation and optimization opportunities:
+
+PIPELINE EFFICIENCY ANALYSIS:
+- Build and deployment time optimization opportunities
+- Parallel execution possibilities for faster feedback
+- Resource utilization optimization in CI/CD workflows
+- Bottleneck identification and resolution strategies
+
+AUTOMATED QUALITY GATES:
+- Code quality checks that should be automated in pipeline
+- Security scanning integration points and optimization
+- Performance testing automation and threshold management
+- Compliance checking automation for regulatory requirements
+
+PIPELINE RELIABILITY IMPROVEMENTS:
+- Failure point analysis and resilience improvements
+- Rollback and recovery automation mechanisms
+- Environment consistency and infrastructure as code
+- Monitoring and alerting for pipeline health
+
+DEVELOPER EXPERIENCE OPTIMIZATION:
+- Feedback loop speed improvements for developers
+- Pipeline visibility and debugging capabilities
+- Self-service capabilities for common pipeline operations
+- Documentation and onboarding automation
+
+Save CI/CD pipeline analysis to: docs/analysis/general/automation/cicd-pipeline-analysis.md
+```
+
+### Technical Level: Advanced Pipeline Automation
+```
+Conduct detailed technical analysis of CI/CD automation opportunities:
+
+PIPELINE ARCHITECTURE OPTIMIZATION:
+- Multi-stage pipeline design with optimal resource allocation
+- Container orchestration and scaling strategies
+- Artifact management and caching optimization
+- Cross-platform build and deployment automation
+
+ADVANCED AUTOMATION PATTERNS:
+- GitOps implementation for automated deployments
+- Feature flag integration for automated rollouts
+- Canary deployment automation with automated rollback
+- Blue-green deployment automation strategies
+
+PIPELINE SECURITY AUTOMATION:
+- Automated security scanning integration and optimization
+- Secrets management automation in CI/CD workflows
+- Compliance automation and audit trail generation
+- Vulnerability management automation
+
+MONITORING AND OBSERVABILITY:
+- Pipeline metrics collection and analysis automation
+- Performance monitoring integration
+- Log aggregation and analysis automation
+- Alerting and incident response automation
+
+Save advanced pipeline automation analysis to: docs/analysis/technical/automation/advanced-pipeline-automation.md
+```
+
+---
+
+## Development Workflow Automation Prompts
+
+### General Level: Developer Productivity Analysis
+```
+Analyze development workflows for automation opportunities that improve productivity:
+
+DEVELOPER WORKFLOW ANALYSIS:
+- Repetitive tasks that could be automated to save developer time
+- Code review process automation and AI-assisted review
+- Documentation generation automation from code and comments
+- Testing automation gaps and opportunities
+
+PRODUCTIVITY IMPROVEMENT OPPORTUNITIES:
+- IDE integration for automated analysis and suggestions
+- Pre-commit hooks for automated code quality checks
+- Automated dependency management and security updates
+- Template and boilerplate code generation automation
+
+COLLABORATION AUTOMATION:
+- Automated project status reporting and dashboards
+- Team communication automation for important events
+- Knowledge sharing automation through documentation
+- Onboarding process automation for new team members
+
+QUALITY ASSURANCE AUTOMATION:
+- Automated code formatting and style enforcement
+- Test coverage monitoring and reporting automation
+- Performance regression detection automation
+- Code complexity analysis and refactoring suggestions
+
+Save developer productivity analysis to: docs/analysis/general/automation/developer-productivity-analysis.md
+```
+
+### Technical Level: Advanced Development Automation
+```
+Conduct detailed technical analysis of development automation opportunities:
+
+IDE AND TOOLING AUTOMATION:
+- VS Code extension development for automated analysis
+- IntelliJ plugin integration for real-time code analysis
+- Command-line tool automation for common development tasks
+- Git hooks automation for quality gates and analysis
+
+CODE GENERATION AND SCAFFOLDING:
+- Automated API endpoint generation from specifications
+- Database migration automation and rollback procedures
+- Test case generation automation from code analysis
+- Documentation automation from code annotations
+
+ADVANCED ANALYSIS AUTOMATION:
+- Machine learning integration for pattern recognition
+- Automated refactoring suggestions based on code analysis
+- Performance profiling automation and optimization suggestions
+- Security vulnerability detection and automated patching
+
+DEVELOPMENT ENVIRONMENT AUTOMATION:
+- Containerized development environment automation
+- Database seeding and test data generation automation
+- Environment configuration management automation
+- Dependency conflict resolution automation
+
+Save advanced development automation analysis to: docs/analysis/technical/automation/advanced-development-automation.md
+```
+
+---
+
 Provide comprehensive code analysis that bridges technical and business understanding:
 
 FUNCTIONAL ANALYSIS:
@@ -624,218 +1141,6 @@ what is the agile sprint cost of this resolution with one engineer?
 ```
 
 ---
-
-# AUTOMATION OF ANALYSIS EVALUATIONS
-
-## Overview: Automating Code Analysis with AI
-
-Yes, these evaluations can be automated! Here are several approaches to automate the analysis prompts in this document:
-
-## Automation Approach 1: GitHub Actions + AI API Integration
-
-### Implementation Strategy
-Create GitHub Actions workflows that trigger automated analysis on code commits, pull requests, or scheduled intervals.
-
-### Required Components:
-```yaml
-# .github/workflows/automated-analysis.yml
-name: Automated Code Analysis
-on:
-  push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main]
-  schedule:
-    - cron: '0 2 * * 1'  # Weekly analysis
-
-jobs:
-  executive-analysis:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run Executive Analysis
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: |
-          python automation/executive_analysis.py
-          
-  technical-analysis:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run Technical Analysis
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: |
-          python automation/technical_analysis.py
-```
-
-### Python Automation Script Example:
-```python
-# automation/automated_analyzer.py
-import openai
-import os
-import json
-from pathlib import Path
-
-class AutomatedAnalyzer:
-    def __init__(self, api_key):
-        openai.api_key = api_key
-        self.prompts = self.load_prompts()
-    
-    def load_prompts(self):
-        # Load prompts from ExamplePrompts.md
-        with open('ExamplePrompts.md', 'r') as f:
-            content = f.read()
-        return self.parse_prompts(content)
-    
-    def analyze_codebase(self, audience_level="executive"):
-        results = {}
-        for analysis_type, prompt in self.prompts[audience_level].items():
-            # Get relevant code files
-            code_context = self.get_code_context(analysis_type)
-            
-            # Run AI analysis
-            response = openai.chat.completions.create(
-                model="gpt-4",
-                messages=[
-                    {"role": "system", "content": "You are an expert code analyst."},
-                    {"role": "user", "content": f"{prompt}\n\nCode to analyze:\n{code_context}"}
-                ]
-            )
-            
-            results[analysis_type] = response.choices[0].message.content
-            
-        return results
-    
-    def generate_reports(self, results, audience_level):
-        # Generate formatted reports for each audience
-        report_dir = Path(f"doc/{audience_level}-reports")
-        report_dir.mkdir(exist_ok=True)
-        
-        for analysis_type, content in results.items():
-            report_path = report_dir / f"{analysis_type}-analysis.md"
-            with open(report_path, 'w') as f:
-                f.write(content)
-```
-
-## Automation Approach 2: Pre-commit Hooks Integration
-
-### Setup Pre-commit Configuration:
-```yaml
-# .pre-commit-config.yaml
-repos:
-  - repo: local
-    hooks:
-      - id: automated-security-analysis
-        name: Automated Security Analysis
-        entry: python automation/security_analysis.py
-        language: python
-        files: \.(py|js|ts|java)$
-        
-      - id: automated-performance-analysis
-        name: Automated Performance Analysis
-        entry: python automation/performance_analysis.py
-        language: python
-        files: \.(py|js|ts|java)$
-```
-
-## Automation Approach 3: IDE Integration with VS Code Extension
-
-### VS Code Extension Configuration:
-```json
-{
-  "contributes": {
-    "commands": [
-      {
-        "command": "automated-analysis.runExecutiveAnalysis",
-        "title": "Run Executive Analysis",
-        "category": "Automated Analysis"
-      },
-      {
-        "command": "automated-analysis.runTechnicalAnalysis", 
-        "title": "Run Technical Analysis",
-        "category": "Automated Analysis"
-      }
-    ],
-    "keybindings": [
-      {
-        "command": "automated-analysis.runExecutiveAnalysis",
-        "key": "ctrl+shift+e",
-        "when": "editorFocus"
-      }
-    ]
-  }
-}
-```
-
-## Automation Approach 4: Docker-based Analysis Pipeline
-
-### Dockerfile for Analysis Environment:
-```dockerfile
-FROM python:3.11-slim
-
-WORKDIR /analysis
-
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-
-COPY automation/ ./automation/
-COPY ExamplePrompts.md .
-
-ENTRYPOINT ["python", "automation/run_analysis.py"]
-```
-
-### Docker Compose for Multi-stage Analysis:
-```yaml
-version: '3.8'
-services:
-  executive-analysis:
-    build: .
-    environment:
-      - ANALYSIS_LEVEL=executive
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-    volumes:
-      - ./src:/analysis/src:ro
-      - ./doc:/analysis/doc
-    command: ["--audience", "executive"]
-    
-  technical-analysis:
-    build: .
-    environment:
-      - ANALYSIS_LEVEL=technical
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-    volumes:
-      - ./src:/analysis/src:ro
-      - ./doc:/analysis/doc
-    command: ["--audience", "technical"]
-```
-
-## Automation Approach 5: Scheduled Analysis with Azure Functions/AWS Lambda
-
-### Azure Function Example:
-```python
-import azure.functions as func
-import openai
-import logging
-
-def main(timer: func.TimerRequest) -> None:
-    logging.info('Automated analysis function started')
-    
-    # Initialize analyzer
-    analyzer = AutomatedAnalyzer(os.environ['OPENAI_API_KEY'])
-    
-    # Run analysis for each audience
-    for audience in ['executive', 'general', 'technical']:
-        results = analyzer.analyze_codebase(audience)
-        analyzer.generate_reports(results, audience)
-        
-        # Send notifications
-        send_analysis_notification(audience, results)
-    
-    logging.info('Automated analysis completed')
-```
-
 ## Implementation Recommendations
 
 ### Phase 1: Basic Automation (Week 1-2)
@@ -1435,4 +1740,4 @@ create a phased implementation plan that addresses security, performance, archit
 - Balance debt reduction with feature development
 
 
-is  there a way to automate these evaluations based on the prompts in this document?
+*For detailed automation implementation guidance, see [AutomationGuide.md](./AutomationGuide.md)*
