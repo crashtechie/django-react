@@ -8,9 +8,9 @@
 - **Severity**: Minor
 
 ## Timing Information
-- **Introduced**: 2024-01-20 14:30:00 UTC (Dashboard component creation)
-- **Discovered**: 2024-02-15 16:45:00 UTC (User acceptance testing)
-- **Reported**: 2024-02-15 17:20:00 UTC (Issue logged)
+- **Introduced**: 2024-01-20 07:30:00 MST (Dashboard component creation)
+- **Discovered**: 2024-02-15 09:45:00 MST (User acceptance testing)
+- **Reported**: 2024-02-15 10:20:00 MST (Issue logged)
 - **Resolved**: Not resolved (Active problem)
 - **Time to Discovery**: 26 days
 - **Time to Report**: 35 minutes after discovery

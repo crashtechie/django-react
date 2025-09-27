@@ -8,9 +8,9 @@
 - **Severity**: Minor
 
 ## Timing Information
-- **Introduced**: 2024-02-01 10:20:00 UTC (UI component modifications)
-- **Discovered**: 2024-02-25 14:15:00 UTC (Test suite execution)
-- **Reported**: 2024-02-25 14:45:00 UTC (Issue documented)
+- **Introduced**: 2024-02-01 03:20:00 MST (UI component modifications)
+- **Discovered**: 2024-02-25 07:15:00 MST (Test suite execution)
+- **Reported**: 2024-02-25 07:45:00 MST (Issue documented)
 - **Resolved**: Not resolved (Active problem)
 - **Time to Discovery**: 24 days
 - **Time to Report**: 30 minutes after discovery

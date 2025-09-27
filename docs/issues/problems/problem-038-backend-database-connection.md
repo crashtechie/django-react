@@ -13,9 +13,9 @@
 - **Severity**: Blocker
 
 ## Timing Information
-- **Introduced**: 2024-01-10 16:20:00 UTC (Django configuration setup)
-- **Discovered**: 2024-02-18 10:15:00 UTC (CI/CD pipeline failure)
-- **Reported**: 2024-02-18 11:30:00 UTC (Issue documented)
+- **Introduced**: 2024-01-10 09:20:00 MST (Django configuration setup)
+- **Discovered**: 2024-02-18 03:15:00 MST (CI/CD pipeline failure)
+- **Reported**: 2024-02-18 04:30:00 MST (Issue documented)
 - **Resolved**: Not resolved (Active problem)
 - **Time to Discovery**: 39 days
 - **Time to Report**: 1.25 hours after discovery

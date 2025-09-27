@@ -8,9 +8,9 @@
 - **Severity**: Blocker
 
 ## Timing Information
-- **Introduced**: 2024-01-15 09:00:00 UTC (Initial development phase)
-- **Discovered**: 2024-02-20 14:30:00 UTC (During integration testing)
-- **Reported**: 2024-02-20 15:45:00 UTC (Documented in issue tracker)
+- **Introduced**: 2024-01-15 02:00:00 MST (Initial development phase)
+- **Discovered**: 2024-02-20 07:30:00 MST (During integration testing)
+- **Reported**: 2024-02-20 08:45:00 MST (Documented in issue tracker)
 - **Resolved**: Not resolved (Active problem)
 - **Time to Discovery**: 36 days
 - **Time to Report**: 1.25 hours after discovery

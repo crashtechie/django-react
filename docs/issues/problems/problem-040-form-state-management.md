@@ -13,9 +13,9 @@
 - **Severity**: Major
 
 ## Timing Information
-- **Introduced**: 2024-01-25 11:45:00 UTC (Form component development)
-- **Discovered**: 2024-02-22 09:20:00 UTC (User testing phase)
-- **Reported**: 2024-02-22 10:15:00 UTC (Issue documented)
+- **Introduced**: 2024-01-25 04:45:00 MST (Form component development)
+- **Discovered**: 2024-02-22 02:20:00 MST (User testing phase)
+- **Reported**: 2024-02-22 03:15:00 MST (Issue documented)
 - **Resolved**: Not resolved (Active problem)
 - **Time to Discovery**: 28 days
 - **Time to Report**: 55 minutes after discovery

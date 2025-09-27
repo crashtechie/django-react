@@ -8,10 +8,10 @@ Add this section after the "Problem Classification" section in each problem docu
 
 ```markdown
 ## Timing Information
-- **Introduced**: YYYY-MM-DD HH:MM:SS UTC (Description of when/how problem was introduced)
-- **Discovered**: YYYY-MM-DD HH:MM:SS UTC (Description of discovery context)
-- **Reported**: YYYY-MM-DD HH:MM:SS UTC (When issue was documented)
-- **Resolved**: YYYY-MM-DD HH:MM:SS UTC (Resolution date) OR "Not resolved (Active problem)"
+- **Introduced**: YYYY-MM-DD HH:MM:SS MST (Description of when/how problem was introduced)
+- **Discovered**: YYYY-MM-DD HH:MM:SS MST (Description of discovery context)
+- **Reported**: YYYY-MM-DD HH:MM:SS MST (When issue was documented)
+- **Resolved**: YYYY-MM-DD HH:MM:SS MST (Resolution date) OR "Not resolved (Active problem)"
 - **Time to Discovery**: X days (Time between introduced and discovered)
 - **Time to Report**: X hours/minutes after discovery
 - **Total Age**: X days (For resolved problems) OR "X+ days (ongoing)" for active problems
@@ -22,9 +22,9 @@ Add this section after the "Problem Classification" section in each problem docu
 ### For Active Problems:
 ```markdown
 ## Timing Information
-- **Introduced**: 2024-01-15 09:00:00 UTC (Initial development phase)
-- **Discovered**: 2024-02-20 14:30:00 UTC (During integration testing)
-- **Reported**: 2024-02-20 15:45:00 UTC (Documented in issue tracker)
+- **Introduced**: 2024-01-15 02:00:00 MST (Initial development phase)
+- **Discovered**: 2024-02-20 07:30:00 MST (During integration testing)
+- **Reported**: 2024-02-20 08:45:00 MST (Documented in issue tracker)
 - **Resolved**: Not resolved (Active problem)
 - **Time to Discovery**: 36 days
 - **Time to Report**: 1.25 hours after discovery
@@ -34,10 +34,10 @@ Add this section after the "Problem Classification" section in each problem docu
 ### For Resolved Problems:
 ```markdown
 ## Timing Information
-- **Introduced**: 2024-01-10 08:30:00 UTC (Jest configuration setup)
-- **Discovered**: 2024-01-25 16:45:00 UTC (Test execution failure)
-- **Reported**: 2024-01-25 17:15:00 UTC (Issue documented)
-- **Resolved**: 2024-01-26 10:30:00 UTC (Configuration fix applied)
+- **Introduced**: 2024-01-10 01:30:00 MST (Jest configuration setup)
+- **Discovered**: 2024-01-25 09:45:00 MST (Test execution failure)
+- **Reported**: 2024-01-25 10:15:00 MST (Issue documented)
+- **Resolved**: 2024-01-26 03:30:00 MST (Configuration fix applied)
 - **Time to Discovery**: 15 days
 - **Time to Report**: 30 minutes after discovery
 - **Total Age**: 16 days (resolved in 1 day)
@@ -46,8 +46,8 @@ Add this section after the "Problem Classification" section in each problem docu
 ## Timing Guidelines
 
 ### Date/Time Format
-- Use UTC timezone for consistency
-- Format: YYYY-MM-DD HH:MM:SS UTC
+- Use MST timezone for consistency
+- Format: YYYY-MM-DD HH:MM:SS MST
 - Include descriptive context in parentheses
 
 ### Time Calculations
